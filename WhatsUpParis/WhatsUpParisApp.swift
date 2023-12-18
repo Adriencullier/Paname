@@ -1,17 +1,19 @@
-//
-//  WhatsUpParisApp.swift
-//  WhatsUpParis
-//
-//  Created by Adrien Cullier on 23/11/2023.
-//
-
 import SwiftUI
 
 @main
 struct WhatsUpParisApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                DiscoveryBuilder().createModule()
+                    .tabItem {
+                        Label("Discovery", systemImage: "house")
+                            .foregroundColor(Color("Wwhite"))
+                    }
+                    .toolbarBackground(Color("Wwhite").opacity(0.1), for: .tabBar)
+                    .toolbarBackground(.visible, for: .tabBar)
+            }
         }
+        
     }
 }

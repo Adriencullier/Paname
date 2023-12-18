@@ -7,18 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030E5E0D2B15B86200772AC7 /* EventTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E5E0C2B15B86200772AC7 /* EventTag.swift */; };
+		033558832B2C2B8E004D0795 /* DateFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033558822B2C2B8E004D0795 /* DateFormatter+Utils.swift */; };
+		033558852B2C2BE5004D0795 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033558842B2C2BE5004D0795 /* String+Utils.swift */; };
+		033558872B2C2C39004D0795 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033558862B2C2C39004D0795 /* Date+Utils.swift */; };
 		0393645B2B0F416D008FC275 /* WhatsUpParisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */; };
 		0393645D2B0F416D008FC275 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0393645C2B0F416D008FC275 /* ContentView.swift */; };
 		0393645F2B0F416E008FC275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0393645E2B0F416E008FC275 /* Assets.xcassets */; };
 		039364622B0F416E008FC275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039364612B0F416E008FC275 /* Preview Assets.xcassets */; };
+		039364692B0F4514008FC275 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039364682B0F4514008FC275 /* Agent.swift */; };
+		0393646B2B0F48D2008FC275 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0393646A2B0F48D2008FC275 /* EventService.swift */; };
+		03B720182B1EF2AC0022A46A /* DiscoveryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B720172B1EF2AC0022A46A /* DiscoveryBuilder.swift */; };
+		03F3E6512B1D969200635600 /* ShipRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6322B1D969100635600 /* ShipRouter.swift */; };
+		03F3E6522B1D969200635600 /* ShipRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6342B1D969100635600 /* ShipRoute.swift */; };
+		03F3E6532B1D969200635600 /* ShipRoutesEnumProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6352B1D969100635600 /* ShipRoutesEnumProtocol.swift */; };
+		03F3E6592B1D969200635600 /* ShipViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E63C2B1D969200635600 /* ShipViewProtocol.swift */; };
+		03F3E65A2B1D969200635600 /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E63D2B1D969200635600 /* BuilderProtocol.swift */; };
+		03F3E65F2B1D969200635600 /* ShipLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6442B1D969200635600 /* ShipLazyView.swift */; };
+		03F3E6602B1D969200635600 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6452B1D969200635600 /* RootView.swift */; };
+		03F3E6612B1D969200635600 /* VoidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6462B1D969200635600 /* VoidView.swift */; };
+		03F3E6622B1D969200635600 /* RootViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6472B1D969200635600 /* RootViewContainer.swift */; };
+		03F3E6632B1D969200635600 /* ShipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6482B1D969200635600 /* ShipView.swift */; };
+		03F3E6642B1D969200635600 /* DismissContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E6492B1D969200635600 /* DismissContainerView.swift */; };
+		03F3E6662B1D969200635600 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E64C2B1D969200635600 /* View+Utils.swift */; };
+		03F3E6672B1D969200635600 /* ShipViewProtocol+setupNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E64D2B1D969200635600 /* ShipViewProtocol+setupNavigation.swift */; };
+		03F3E66C2B1D96AB00635600 /* NavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */; };
+		03F3E6702B1D97E300635600 /* DiscoveryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E66F2B1D97E300635600 /* DiscoveryRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030E5E0C2B15B86200772AC7 /* EventTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTag.swift; sourceTree = "<group>"; };
+		033558822B2C2B8E004D0795 /* DateFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Utils.swift"; sourceTree = "<group>"; };
+		033558842B2C2BE5004D0795 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		033558862B2C2C39004D0795 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		039364572B0F416D008FC275 /* WhatsUpParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsUpParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpParisApp.swift; sourceTree = "<group>"; };
 		0393645C2B0F416D008FC275 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0393645E2B0F416E008FC275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		039364612B0F416E008FC275 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		039364682B0F4514008FC275 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		0393646A2B0F48D2008FC275 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		03B720172B1EF2AC0022A46A /* DiscoveryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryBuilder.swift; sourceTree = "<group>"; };
+		03F3E6322B1D969100635600 /* ShipRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipRouter.swift; sourceTree = "<group>"; };
+		03F3E6342B1D969100635600 /* ShipRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipRoute.swift; sourceTree = "<group>"; };
+		03F3E6352B1D969100635600 /* ShipRoutesEnumProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipRoutesEnumProtocol.swift; sourceTree = "<group>"; };
+		03F3E63C2B1D969200635600 /* ShipViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewProtocol.swift; sourceTree = "<group>"; };
+		03F3E63D2B1D969200635600 /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
+		03F3E6442B1D969200635600 /* ShipLazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipLazyView.swift; sourceTree = "<group>"; };
+		03F3E6452B1D969200635600 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		03F3E6462B1D969200635600 /* VoidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidView.swift; sourceTree = "<group>"; };
+		03F3E6472B1D969200635600 /* RootViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewContainer.swift; sourceTree = "<group>"; };
+		03F3E6482B1D969200635600 /* ShipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipView.swift; sourceTree = "<group>"; };
+		03F3E6492B1D969200635600 /* DismissContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissContainerView.swift; sourceTree = "<group>"; };
+		03F3E64C2B1D969200635600 /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		03F3E64D2B1D969200635600 /* ShipViewProtocol+setupNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShipViewProtocol+setupNavigation.swift"; sourceTree = "<group>"; };
+		03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEvent.swift; sourceTree = "<group>"; };
+		03F3E66F2B1D97E300635600 /* DiscoveryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +76,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030E5E0E2B15B86B00772AC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */,
+				030E5E0C2B15B86200772AC7 /* EventTag.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		033558812B2C2B7F004D0795 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				033558822B2C2B8E004D0795 /* DateFormatter+Utils.swift */,
+				033558842B2C2BE5004D0795 /* String+Utils.swift */,
+				033558862B2C2C39004D0795 /* Date+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		0393644E2B0F416D008FC275 = {
 			isa = PBXGroup;
 			children = (
@@ -51,7 +114,15 @@
 		039364592B0F416D008FC275 /* WhatsUpParis */ = {
 			isa = PBXGroup;
 			children = (
+				03F3E6432B1D969200635600 /* Components */,
+				030E5E0E2B15B86B00772AC7 /* Models */,
+				03F3E63B2B1D969200635600 /* Protocols */,
+				03F3E6332B1D969100635600 /* ShipRoute */,
+				03F3E6312B1D969100635600 /* ShipRouter */,
+				03F3E64B2B1D969200635600 /* View+Extension */,
+				0393646C2B0FBAB6008FC275 /* Core */,
 				0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */,
+				0393646A2B0F48D2008FC275 /* EventService.swift */,
 				0393645C2B0F416D008FC275 /* ContentView.swift */,
 				0393645E2B0F416E008FC275 /* Assets.xcassets */,
 				039364602B0F416E008FC275 /* Preview Content */,
@@ -65,6 +136,98 @@
 				039364612B0F416E008FC275 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0393646C2B0FBAB6008FC275 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				033558812B2C2B7F004D0795 /* Utils */,
+				03F3E66D2B1D979A00635600 /* New Group */,
+				0393646D2B0FBABB008FC275 /* Client */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0393646D2B0FBABB008FC275 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				039364682B0F4514008FC275 /* Agent.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		03B720162B1EF2970022A46A /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				03B720172B1EF2AC0022A46A /* DiscoveryBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		03F3E6312B1D969100635600 /* ShipRouter */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E6322B1D969100635600 /* ShipRouter.swift */,
+			);
+			path = ShipRouter;
+			sourceTree = "<group>";
+		};
+		03F3E6332B1D969100635600 /* ShipRoute */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E6342B1D969100635600 /* ShipRoute.swift */,
+				03F3E6352B1D969100635600 /* ShipRoutesEnumProtocol.swift */,
+			);
+			path = ShipRoute;
+			sourceTree = "<group>";
+		};
+		03F3E63B2B1D969200635600 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E63C2B1D969200635600 /* ShipViewProtocol.swift */,
+				03F3E63D2B1D969200635600 /* BuilderProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		03F3E6432B1D969200635600 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E66E2B1D97A500635600 /* Dicovery */,
+				03F3E6442B1D969200635600 /* ShipLazyView.swift */,
+				03F3E6452B1D969200635600 /* RootView.swift */,
+				03F3E6462B1D969200635600 /* VoidView.swift */,
+				03F3E6472B1D969200635600 /* RootViewContainer.swift */,
+				03F3E6482B1D969200635600 /* ShipView.swift */,
+				03F3E6492B1D969200635600 /* DismissContainerView.swift */,
+			);
+			name = Components;
+			path = ../../../ZENCHEF/SwiftUI_Navigation/ShipNavigation/Sources/ShipNavigation/ShipNavigationSPM/Components;
+			sourceTree = "<group>";
+		};
+		03F3E64B2B1D969200635600 /* View+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				03F3E64C2B1D969200635600 /* View+Utils.swift */,
+				03F3E64D2B1D969200635600 /* ShipViewProtocol+setupNavigation.swift */,
+			);
+			path = "View+Extension";
+			sourceTree = "<group>";
+		};
+		03F3E66D2B1D979A00635600 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		03F3E66E2B1D97A500635600 /* Dicovery */ = {
+			isa = PBXGroup;
+			children = (
+				03B720162B1EF2970022A46A /* Builder */,
+				03F3E66F2B1D97E300635600 /* DiscoveryRouter.swift */,
+			);
+			path = Dicovery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 0393644E2B0F416D008FC275;
+			packageReferences = (
+				030E5E3F2B185D9900772AC7 /* XCRemoteSwiftPackageReference "ShipNavigationSPM" */,
+			);
 			productRefGroup = 039364582B0F416D008FC275 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +303,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F3E6632B1D969200635600 /* ShipView.swift in Sources */,
+				033558852B2C2BE5004D0795 /* String+Utils.swift in Sources */,
+				03F3E65F2B1D969200635600 /* ShipLazyView.swift in Sources */,
+				03F3E66C2B1D96AB00635600 /* NavigationEvent.swift in Sources */,
+				03F3E65A2B1D969200635600 /* BuilderProtocol.swift in Sources */,
+				03F3E6622B1D969200635600 /* RootViewContainer.swift in Sources */,
+				03F3E6702B1D97E300635600 /* DiscoveryRouter.swift in Sources */,
+				03F3E6672B1D969200635600 /* ShipViewProtocol+setupNavigation.swift in Sources */,
+				03F3E6662B1D969200635600 /* View+Utils.swift in Sources */,
+				03F3E6512B1D969200635600 /* ShipRouter.swift in Sources */,
+				03F3E6522B1D969200635600 /* ShipRoute.swift in Sources */,
+				03F3E6612B1D969200635600 /* VoidView.swift in Sources */,
+				03F3E6642B1D969200635600 /* DismissContainerView.swift in Sources */,
+				033558872B2C2C39004D0795 /* Date+Utils.swift in Sources */,
+				0393646B2B0F48D2008FC275 /* EventService.swift in Sources */,
+				03F3E6592B1D969200635600 /* ShipViewProtocol.swift in Sources */,
+				03F3E6602B1D969200635600 /* RootView.swift in Sources */,
+				039364692B0F4514008FC275 /* Agent.swift in Sources */,
+				03F3E6532B1D969200635600 /* ShipRoutesEnumProtocol.swift in Sources */,
 				0393645D2B0F416D008FC275 /* ContentView.swift in Sources */,
+				033558832B2C2B8E004D0795 /* DateFormatter+Utils.swift in Sources */,
+				030E5E0D2B15B86200772AC7 /* EventTag.swift in Sources */,
+				03B720182B1EF2AC0022A46A /* DiscoveryBuilder.swift in Sources */,
 				0393645B2B0F416D008FC275 /* WhatsUpParisApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,14 +460,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatsUpParis/Preview Content\"";
-				DEVELOPMENT_TEAM = 6NVH37G35U;
+				DEVELOPMENT_TEAM = 6R3UKM3P96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,14 +490,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatsUpParis/Preview Content\"";
-				DEVELOPMENT_TEAM = 6NVH37G35U;
+				DEVELOPMENT_TEAM = 6R3UKM3P96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +534,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		030E5E3F2B185D9900772AC7 /* XCRemoteSwiftPackageReference "ShipNavigationSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Adriencullier/ShipNavigationSPM";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 0393644F2B0F416D008FC275 /* Project object */;
 }
