@@ -5,6 +5,16 @@ import Foundation
 // swiftlint:disable identifier_name
 // MARK: - String extension
 extension String {
+    var formattedTag: String {
+        return self
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "-", with: " ")
+    }
+    
+    var formattedDateDescription: String {
+        return self.replacingOccurrences(of: "<[^>]+>", with: " ", options: .regularExpression)
+    }
+    
     /// Aims to know if a string is empty or not after trimming whites paces and new lines
     public var isNotEmptyAfterTrimWhitespacesAndNewlines: Bool {
         !self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty

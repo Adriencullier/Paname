@@ -10,6 +10,7 @@ protocol ShipRouterProtocol {
 final class ShipRouter<RoutesEnum: ShipRoutesEnumProtocol>: ShipRouterProtocol, ObservableObject {
     /// Selected route
     @Published var selectedRoute: ShipRoute = ShipRoute.shipEmptyRoute
+    @Published var settingsDetent: PresentationDetent = .medium
     
     /// Method used to navigate to a route owned by the ShipRoutesEnum
     /// - Parameter routeKey: ShipRoutesEnumProtocol

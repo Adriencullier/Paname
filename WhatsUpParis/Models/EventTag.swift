@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 enum Accessibility: String, Codable {
     case pmr = "pmr"
     case blind = "blind"
@@ -22,233 +24,167 @@ enum Accessibility: String, Codable {
         }
     }
 }
-enum EventTag: CaseIterable {
-    case expo
-    case kids
-    case concert
+
+enum Category: CaseIterable {
+    case enfants
     case musique
-    case musicalShow
-    case theater
-    case nature
-    case workshop
-    case modernArt
-    case hobbies
-    case paint
-    case jo2024
-    case sport
-    case innovation
-    case conference
-    case literature
-    case danse
+    case plasticArts
+    case theatre
     case cinema
-    case bd
-    case walk
+    case sport
+    case litterature
     case circus
-    case history
-    case photo
-    case brocante
-    case solidarity
-    case streetArt
-    case other(value: String)
+    case danse
+    case gratuit
     
-    static var allCases: [EventTag] {
-        return [
-            .expo,
-            .kids,
-            .concert,
-            .musique,
-            .musicalShow,
-            .theater,
-            .nature,
-            .workshop,
-            .modernArt,
-            .hobbies,
-            .paint,
-            .jo2024,
-            .sport,
-            .innovation,
-            .concert,
-            .literature,
-            .danse,
-            .cinema,
-            .bd,
-            .walk,
-            .circus,
-            .history,
-            .photo,
-            .brocante,
-            .solidarity,
-            .streetArt
-        ]
-    }
-    
-    var id: UUID {
-        return UUID()
-    }
-    
-    var rawValue: String? {
-        switch self {
-        case .expo:
-            return "expo"
-        case .kids:
-            return "enfants"
-        case .concert:
-            return "concert"
-        case .musique:
-            return "musique"
-        case .musicalShow:
-            return "spectacle musical"
-        case .theater:
-            return "théâtre"
-        case .nature:
-            return "nature"
-        case .workshop:
-            return "atelier"
-        case .modernArt:
-            return "art contemporain"
-        case .hobbies:
-            return "loisirs"
-        case .paint:
-            return "peinture"
-        case .jo2024:
-            return "jeux 2024"
-        case .sport:
-            return "sport"
-        case .innovation:
-            return "innovation"
-        case .conference:
-            return "conférence"
-        case .literature:
-            return "littérature"
-        case .danse:
-            return "danse"
-        case .cinema:
-            return "cinéma"
-        case .bd:
-            return "bd"
-        case .walk:
-            return "ballade"
-        case .circus:
-            return "cirque"
-        case .history:
-            return "histoire"
-        case .photo:
-            return "photo"
-        case .brocante:
-            return "brocante"
-        case .solidarity:
-            return "solidarité"
-        case .streetArt:
-            return "street art"
-        case .other:
-            return nil
-        }
-    }
+    var id: UUID { UUID() }
     
     var title: String {
         switch self {
-        case .expo:
-            return "expo"
-        case .kids:
-            return "enfants"
-        case .concert:
-            return "concert"
-        case .musique, .musicalShow:
-            return "musique"
-        case .theater:
-            return "théâtre"
-        case .nature:
-            return "nature"
-        case .workshop:
-            return "atelier"
-        case .modernArt:
-            return "art contemporain"
-        case .hobbies:
-            return "loisirs"
-        case .paint:
-            return "peinture"
-        case .jo2024:
-            return "JO 2024"
-        case .sport:
-            return "sport"
-        case .innovation:
-            return "innovation"
-        case .conference:
-            return "conférence"
-        case .literature:
-            return "littérature"
-        case .danse:
-            return "danse"
+        case .enfants:
+            return "Enfants"
+        case .musique:
+            return "Musique"
+        case .plasticArts:
+            return "Arts"
+        case .theatre:
+            return "Théâtre"
         case .cinema:
-            return "cinéma"
-        case .bd:
-            return "BD"
-        case .walk:
-            return "ballade"
+            return "Cinéma"
+        case .sport:
+            return "Sport"
+        case .litterature:
+            return "Littérature"
         case .circus:
-            return "cirque"
-        case .history:
-            return "histoire"
-        case .photo:
-            return "photo"
-        case .brocante:
-            return "brocante"
-        case .solidarity:
-            return "solidarité"
-        case .streetArt:
-            return "street art"
-        case .other(let value):
-            return value
+            return "Cirque"
+        case .danse:
+            return "Danse"
+        case .gratuit:
+            return "Gratuit"
+        }
+    }
+    
+    var tags: [EventTag] {
+        switch self {
+        case .enfants:
+            return [.kids]
+        case .musique:
+            return [
+                .concert,
+                .musique,
+                .musicalShow
+            ]
+        case .plasticArts:
+            return [
+                .expo,
+                .paint,
+                .modernArt,
+                .photo,
+                .streetArt
+            ]
+        case .theatre:
+            return [.theater]
+        case .cinema:
+            return [.cinema]
+        case .sport:
+            return [
+                .sport,
+                .jo2024
+            ]
+        case .litterature:
+            return [
+                .bd,
+                .litterature
+            ]
+        case .circus:
+            return [.circus]
+        case .danse:
+            return [.danse]
+        case .gratuit:
+            return []
         }
     }
     
     var icon: String {
         switch self {
-        case .expo:
-            "photo.artframe"
-        case .kids:
-            "figure.and.child.holdinghands"
-        case .concert, .musicalShow, .musique:
-            "music.mic"
-        case .theater:
-            "theatermasks"
-        case .nature:
-            "leaf"
-        case .workshop, .conference:
-            "house"
-        case .modernArt:
-            "photo.artframe"
-        case .paint, .streetArt:
-            "paintpalette"
-        case .jo2024:
-            "flame"
-        case .sport:
-            "football"
-        case .innovation:
-            "lightbulb"
-        case .literature, .bd:
-            "book"
-        case .danse:
-            "figure.dance"
+        case .enfants:
+            return "figure.and.child.holdinghands"
+        case .musique:
+            return "music.mic"
+        case .plasticArts:
+            return "photo.artframe"
+        case .theatre:
+            return "theatermasks"
         case .cinema:
-            "film"
-        case .walk, .brocante, .solidarity, .hobbies, .history:
-            "person"
+            return "film"
+        case .sport:
+            return "football"
+        case .litterature:
+            return "book"
         case .circus:
-            "pawprint"
-        case .photo:
-            "camera"
-        case .other:
-            "questionmark"
+            return "pawprint"
+        case .danse:
+            return "figure.dance"
+        case .gratuit:
+            return "staroflife"
         }
     }
     
-    init(rawValue: String) {
-        guard let tag = Self.allCases.first(where: { $0.rawValue == rawValue }) else {
-            self = .other(value: rawValue)
-            return
+    var color: Color {
+        switch self {
+        case .enfants:
+            return Color("Wblue")
+        case .musique:
+            return Color("Wpurple")
+        case .plasticArts:
+            return Color("Wred")
+        case .theatre:
+            return Color("Waquablue")
+        case .cinema:
+            return Color("Wgreen")
+        case .sport:
+            return Color("Worange")
+        case .litterature:
+            return Color("Wpink")
+        case .circus:
+            return Color("WdarkGreen")
+        case .danse:
+            return Color("Wblack")
+        case .gratuit:
+            return Color("Wblack")
         }
-        self = tag
     }
     
+    static func getCategories(from tags: [EventTag]) -> [Category] {
+        var cats: [Category] = []
+        tags.forEach({ tag in
+            guard let category = Category.allCases.first(where: { $0.tags.contains(tag) }),
+                  !cats.contains(category) else {
+                return
+            }
+            cats.append(category)
+        })
+        return cats
+    }
+}
+
+enum EventTag: String {
+    case expo = "Expo"
+    case kids = "Enfants"
+    case concert = "Concert"
+    case musique = "Musique"
+    case musicalShow = "Spectacle musical"
+    case theater = "Théâtre"
+    case nature = "Nature"
+    case modernArt = "Art contemporain"
+    case paint = "Peinture"
+    case jo2024 = "Jeux 2024"
+    case sport = "Sport"
+    case litterature = "Littérature"
+    case danse = "Danse"
+    case cinema = "Cinéma"
+    case bd = "BD"
+    case circus = "Cirque"
+    case photo = "Photo"
+    case streetArt = "Street art"
 }

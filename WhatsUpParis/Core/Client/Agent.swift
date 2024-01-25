@@ -60,7 +60,7 @@ enum Endpoints {
         switch self {
         case    .whatToDoInParis:
             return [
-                "application/json": "Content-Type",
+                "Content-Type": "charset=utf-8",
                 "Accept-Encoding": "br"
             ]
         }
@@ -137,7 +137,7 @@ class Agent {
         }
         // Instanciate urlComponents with endPointUrl
         var urlComponents = URLComponents(url: endPointUrl,
-                                          resolvingAgainstBaseURL: false)
+                                          resolvingAgainstBaseURL: true)
         var queryItems: [URLQueryItem] = []
         var httpBody: Data?
         
@@ -154,6 +154,7 @@ class Agent {
             fatalError("URL With components is not valid")
         }
         // Instanciate an urlRequest with urlForRequest
+        
         var urlRequest = URLRequest(url: urlForRequest)
         // Add http method to urlRequest
         urlRequest.httpMethod = method.name

@@ -1,9 +1,10 @@
 import Foundation
+import SwiftUI
 
 /// List all the navigation events
 enum NavigationEvent {
     // Open in modal
-    case modal
+    case modal(detents: Set<PresentationDetent>)
     // Open with push
     case push
     // Pop to level -1

@@ -89,7 +89,7 @@ public enum DateFormat: Equatable {
     case weekdayLong
     /// Format: EEE dd MMMM
     case weekdayMonth
-    /// Format: EEE dd MMM
+    /// Format: EEEE dd MMM
     case weekdayMonthShort
     /// Format: EEE dd MMMM yyyy
     case weekdayMonthYear

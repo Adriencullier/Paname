@@ -1,74 +1,55 @@
 import SwiftUI
 import WebKit
 
-//where=search(occurrences,%27%2023-12-15%%27)
-struct Event {
-    var id: String
-    var title: String
-    var leadText: String
-    var tags: [EventTag] = []
-    var accessibility: [Accessibility] = []
-    var zipCode: String
-    var coverUrlStr: String
-    var accessUrlStr: String?
-    var dateDescription: String
+
+
+class DiscoveryFilters {
+    var date: Date
+    var categories: [Category]
     
-    init?(eventEntity: EventEntity) {
-        guard let title = eventEntity.title,
-              let leadText = eventEntity.leadText,
-              let tags = eventEntity.tags,
-              let zipCode = eventEntity.zipCode,
-              let coverUrlStr = eventEntity.coverUrlStr,
-              let dateDescription = eventEntity.dateDescription else { return nil }
-        self.id = eventEntity.id
-        self.title = title
-        self.leadText = leadText
-        if let pmr = eventEntity.pmr {
-            self.accessibility.append(.pmr)
-        }
-        if let blind = eventEntity.blind {
-            self.accessibility.append(.blind)
-        }
-        if let deaf = eventEntity.deaf {
-            self.accessibility.append(.deaf)
-        }
-        self.tags = tags.map({ EventTag(rawValue: $0
-            .lowercased()
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .replacingOccurrences(of: "-", with: " ")) })
-            
-        self.zipCode = zipCode
-        self.coverUrlStr = coverUrlStr
-        self.accessUrlStr = eventEntity.accessUrlStr
-        self.dateDescription = dateDescription.replacingOccurrences(of: "<[^>]+>", with: " ", options: .regularExpression)
-    }
-}
-final class ViewModel: ObservableObject {
-    private let eventService: EventService
-    
-    @Published var events: [Event] = []
-    @Published var selectedDate: Date = Date() {
-        didSet {
-            DispatchQueue.main.async {
-                self.fetchEvents()
-            }
-        }
+    init(date: Date = Date(), categories: [Category] = []) {
+        self.date = date
+        self.categories = categories
     }
     
     var params: [URLQueryItem] {
-        [URLQueryItem(name: "where", value: "search(occurrences,\'%\(self.selectedDate.toString(.yearMonth))%\')")]
+        var params: [URLQueryItem] = []
+        if !self.categories.isEmpty {
+            let value: String = categories
+                .flatMap({ $0.tags })
+                .flatMap({ $0.rawValue })
+                .map({ "\'" + $0 + "\'" })
+                .joined(separator: "or")
+            params.append(URLQueryItem(name: "where", value: value + " in tags"))
+        }
+        params.append(URLQueryItem(name: "where", value: "search(occurrences,\'%\(self.date.toString(.yearMonth))%\')"))
+        return params
+    }
+}
+
+final class DiscoveryViewModel: ObservableObject {
+    private let eventService: EventService
+    
+    @Published var events: [Event] = []
+    @Published var selectedItem: Int = 1
+    @Published var discoveryFilters: DiscoveryFilters = DiscoveryFilters() {
+        didSet {
+            DispatchQueue.main.async {
+                self.fetchEvents(params: self.discoveryFilters.params)
+            }
+        }
     }
     
     @MainActor
     init(eventService: EventService) {
         self.eventService = eventService
-        self.fetchEvents()
+        self.fetchEvents(params: self.discoveryFilters.params)
     }
     
     @MainActor
-    func fetchEvents() {
+    func fetchEvents(params: [URLQueryItem]) {
         Task {
-            self.events = (await self.eventService.fetchEvents(params: self.params) ?? []).compactMap({ Event(eventEntity: $0) })
+            self.events = (await self.eventService.fetchEvents(params: params) ?? []).compactMap({ Event(eventEntity: $0) })
         }
     }
 }
@@ -76,183 +57,147 @@ final class ViewModel: ObservableObject {
 struct ContentView: ShipViewProtocol {
     var router: ShipRouter<DiscoveryRoute>
     
-    @ObservedObject private var viewModel: ViewModel
+    @ObservedObject private var viewModel: DiscoveryViewModel
     @State private var calendarId: UUID = UUID()
-    @State private var tabViewId: UUID = UUID()
     
-    init(viewModel: ViewModel, router: ShipRouter<DiscoveryRoute>) {
+    init(viewModel: DiscoveryViewModel, router: ShipRouter<DiscoveryRoute>) {
         self.viewModel = viewModel
         self.router = router
     }
     
-    
+    var categoriesFilterButton: some View {
+        VStack {
+            if self.viewModel.discoveryFilters.categories.count > 0 {
+                HStack(spacing: 2) {
+                    ForEach(self.viewModel.discoveryFilters.categories, id: \.self) { cat in
+                        Image(systemName: cat.icon)
+                            .foregroundStyle(cat.color)
+//                            .padding(4)
+                    }
+                }
+            } else {
+                HStack {
+                    Text("Catégories")
+                        .font(.system(size: 14, weight: .regular, design: .default))
+                        .foregroundStyle(Color("Wblack"))
+                }
+                .padding(.vertical, 2)
+            }
+        }
+        .frame(minWidth: 60)
+        .padding(8)
+            .background(Color("Wwhite"))
+            .clipShape(RoundedRectangle(cornerRadius: 28))
+            .overlay(content: {
+                RoundedRectangle(cornerRadius: 28)
+                    .stroke(Color("Wblack").opacity(0.4), lineWidth: 1)
+            })
+            .onTapGesture {
+                self.router.navigate(to: .categoriesView(categories: self.$viewModel.discoveryFilters.categories,
+                                                         onValidatePressed: self.router.dismiss))
+            }
+            
+//            .padding(.leading, 96)
+//            .padding(.bottom, 30)
+//        }
+        
+    }
     
     var body: some View {
-        VStack(alignment: .center) {
-            DatePicker("", 
-                       selection: self.$viewModel.selectedDate,
-                       in: Date()...,
-                       displayedComponents: .date)
-            .id(calendarId)
-            .onChange(of: self.viewModel.selectedDate) { _, _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    calendarId = UUID()
-//                    tabViewId = UUID()
-                }
-            }
-            .datePickerStyle(.automatic)
-            .fixedSize()
-            .colorMultiply(Color("Wwhite"))
-            
-            .padding(.leading, -8)
-            GeometryReader { proxy in
-                TabView {
-                    ForEach(self.viewModel.events, id: \.id) { event in
-                            VStack(alignment: .leading, spacing: 8)  {
-                                    CacheAsyncImage(url: URL(string: event.coverUrlStr)!) { phase in
-                                        self.getImage(from: phase)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .clipped()
-
-                                    }
-                                VStack(alignment: .leading) {
-                                    Text(event.title)
-                                        .foregroundStyle(Color("Wwhite"))
-                                        .multilineTextAlignment(.leading)
-                                        .fontWeight(.semibold)
-                                        .lineLimit(1)
-                                    VStack(alignment: .leading, spacing: 8) {
-                                        HStack(spacing: 4) {
-                                            ForEach(event.tags, id: \.id) { tag in
-                                                HStack(spacing: 0) {
-                                                    Image(systemName: tag.icon)
-                                                    Text(tag.title)
-                                                        .fixedSize()
-                                                }
-                                                .foregroundStyle(Color("Wblack"))
-                                                .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                                                .background(content: {
-                                                    Color("Wwhite").opacity(0.8)
-                                                })
-                                                .clipShape(RoundedRectangle(cornerRadius: 4))
-                                            }
-                                        }
-                                        Text(event.zipCode)
-                                            .foregroundStyle(Color("Wwhite"))
-                                            Text(event.leadText)
-                                                .multilineTextAlignment(.leading)
-                                                .fontWeight(.light)
-                                                .foregroundStyle(Color("Wwhite"))
-                                        Text(event.dateDescription)
-                                            .multilineTextAlignment(.leading)
-                                            .fontWeight(.light)
-                                            .foregroundStyle(Color("Wwhite"))
-                                        if !event.accessibility.isEmpty {
-                                            HStack {
-                                                Text("Accessibility:")
-                                                    .multilineTextAlignment(.leading)
-                                                    .fontWeight(.regular)
-                                                    .foregroundStyle(Color("Wwhite"))
-                                                HStack {
-                                                    ForEach(event.accessibility, id: \.self) { accessibility in
-                                                        Image(systemName: accessibility.icon)
-                                                            .foregroundStyle(Color("Wwhite"))
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        Spacer()
-                                        if let urlStr = event.accessUrlStr,
-                                           let url = URL(string: urlStr) {
-                                            Button(action: {
-                                                self.router.navigate(to: DiscoveryRoute.reservationWebView(url: url))
-
-                                            }, label: {
-                                                HStack {
-                                                    Spacer()
-                                                    Text("Réserver")
-                                                    Spacer()
-                                                }
-                                                    .foregroundStyle(Color("Wblack"))
-                                                    .padding(EdgeInsets(top: 6, leading: 4, bottom: 6, trailing: 4))
-                                                    .background(content: {
-                                                        Color("Wwhite").opacity(0.8)
-                                                    })
-                                                    .clipShape(RoundedRectangle(cornerRadius: 4))
-                                            })
-                                        } else {
-                                            HStack {
-                                                Spacer()
-                                                Text("Non réservable")
-                                                Spacer()
-                                            }
-                                                .foregroundStyle(Color("Wblack"))
-                                                .padding(EdgeInsets(top: 6, leading: 4, bottom: 6, trailing: 4))
-                                                .background(content: {
-                                                    Color("Wwhite").opacity(0.4)
-                                                })
-                                                .clipShape(RoundedRectangle(cornerRadius: 4))
-                                        }
-                                        
-                                    }
-
-                                }
-                                .padding()
-                                                        .onAppear {
-                                    if let lastEvent = self.viewModel.events.last,
-                                       lastEvent.id == event.id {
-                                        self.viewModel.fetchEvents()
-                                    }
-                                    
+            ZStack {
+                GeometryReader { proxy in
+                    TabView {
+                        ForEach(self.viewModel.events, id: \.id) { event in
+                            VStack(spacing: 8) {
+                                EventCard(event: event) { url in
+                                    self.router.navigate(to: DiscoveryRoute.reservationWebView(url: url))
                                 }
                                 Spacer()
                             }
-                            .frame(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.height - 200)
-                            .background(Color.black.opacity(0.3))
-                            .clipShape(
-                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.height - 250)
+                            .background(Color("Wwhite"))
+                            
+                            .overlay( /// apply a rounded border
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color("Wblack").opacity(0.4), lineWidth: 1)
                             )
-                            .shadow(radius: 20)
+                            .frame(width: proxy.size.width, height: proxy.size.height)
+                            .rotationEffect(.degrees(-90))
+                            .onAppear {
+                                if let lastEvent = self.viewModel.events.last,
+                                   lastEvent.id == event.id {
+                                }
+                                
+                            }
+                        }
                         
                     }
-                    .frame(width: proxy.size.width, height: proxy.size.height)
-                    .rotationEffect(.degrees(-90))
+                    .edgesIgnoringSafeArea(.all)
+                    .id(self.calendarId)
+                    .frame(width: proxy.size.height, height: proxy.size.width)
+                    .rotationEffect(.degrees(90), anchor: .topLeading)
+                    .offset(x: proxy.size.width)
                 }
-                .id(self.calendarId)
-                .frame(width: proxy.size.height, height: proxy.size.width)
-                .rotationEffect(.degrees(90), anchor: .topLeading)
-                .offset(x: proxy.size.width)
-
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                VStack {
+                ScrollView(.horizontal) {
+                    HStack {
+                            categoriesFilterButton
+                            datePicker
+                        }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 2)
+                    .scrollIndicators(.hidden)
+                }
+                .padding(.bottom, 8)
+                .background {
+                    Color("Wwhite")
+                }
+                    Spacer()
+                }
             }
-                    }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .background(
-                ZStack {
-                    Image("background1")
-                        .resizable()
-                        .scaledToFill()
-                        .blur(radius: 10)
-                        .ignoresSafeArea()
-                    Image("background2")
-                        .resizable()
-                        .scaledToFill()
-                        .opacity(0.8)
-                        .ignoresSafeArea()
-                    
-                }
-            )
-        
- }
+            .background {
+                Color("Wwhite")
+                    .ignoresSafeArea()
+            }
+    }
     
-    private func getImage(from phase: AsyncImagePhase) -> Image {
-        switch phase {
-        case .empty, .failure:
-            Image(systemName: "heart")
-        case .success(let image):
-            image
-        @unknown default:
-            Image(systemName: "heart")
+    
+    
+    var datePicker: some View {
+        HStack {
+            Text(self.viewModel.discoveryFilters.date.toString(.weekdayMonth))
+                .foregroundStyle(Color("Wblack"))
+                .font(.system(size: 14, weight: .regular, design: .default))
+                .padding(.horizontal, 8)
+                .padding(.vertical, 10)
+                .background(Color("Wwhite"))
+                .clipShape(RoundedRectangle(cornerRadius: 28))
+                .overlay(content: {
+                    RoundedRectangle(cornerRadius: 28)
+                        .stroke(Color("Wblack").opacity(0.4), lineWidth: 1)
+                })
+                .overlay {
+                    DatePicker(
+                        "",
+                        selection: self.$viewModel.discoveryFilters.date,
+                        in: Date()...,
+                        displayedComponents: .date
+                    )
+                    .id(calendarId)
+                    .onChange(of: self.viewModel.discoveryFilters.categories) { _, _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            calendarId = UUID()
+                        }
+                    }
+                    .onChange(of: self.viewModel.discoveryFilters.date) { _, _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            calendarId = UUID()
+                        }
+                    }
+                    .blendMode(.destinationOver)
+                }
         }
     }
 }
@@ -311,17 +256,250 @@ fileprivate class ImageCache{
 }
 
 struct WebView: UIViewRepresentable {
- 
+    
     var url: URL
- 
+
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
- 
+    
     func updateUIView(_ webView: WKWebView, context: Context) {
         let request = URLRequest(url: url)
         webView.load(request)
     }
 }
 
+struct EventCard: View {
+    var event: Event
+    var onBookingButtonPressed: (_ url: URL) -> Void
+    
+    var body: some View {
+        VStack {
+            coverImage
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+            content
+        }
+    }
+    
+    var coverImage: some View {
+        CacheAsyncImage(url: event.coverUrl) {
+            $0.image.resizable().scaledToFit().clipped()
+        }
+    }
+    
+    var locationView: some View {
+        PText(text: event.address.uppercased())
+            .font(.system(size: 12, weight: .thin))
+            .lineLimit(2)
+    }
+    
+    var descriptionView: some View {
+        VStack {
+            Text(event.leadText)
+                .foregroundStyle(Color("Wblack"))
+                .font(.system(.body, design: .default, weight: .light))
+            Spacer()
+        }
+    }
+    
+    var dateDescriptionView: some View {
+        Text(event.dateDescription)
+            .foregroundStyle(Color("Wblack"))
+            .font(.system(size: 12, weight: .thin, design: .default))
+            .lineLimit(3)
+    }
+    
+    var content: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            PText(text: event.title)
+                .font(.title)
+                .multilineTextAlignment(.leading)
+                .lineLimit(3)
+            locationView
+            dateDescriptionView
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(self.event.categories, id: \.id) { category in
+                        CategoryView(category: category)
+                    }
+                }
+            }
+            .scrollIndicators(.hidden)
+            .padding(.top, 8)
+            descriptionView
+                .padding(.vertical, 8)
+            Spacer()
+            if let urlStr = self.event.accessUrlStr,
+               let url = URL(string: urlStr) {
+                reservationButton(uiMode: .bookable(url: url))
+            } else {
+                reservationButton(uiMode: .notBookable)
+            }
+            
+        }
+    }
+    
+    func reservationButton(uiMode: ReservationButtonUIMode) -> some View {
+        HStack {
+            Spacer()
+            Text(uiMode.title)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(uiMode.titleColor)
+                .padding(.vertical, 12)
+            Spacer()
+        }
+        .background(content: {
+            uiMode.bgColor
+        })
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(uiMode.borderColor, lineWidth: uiMode.borderSize)
+        }
+        .onTapGesture(perform: {
+            if let url = uiMode.url {
+                self.onBookingButtonPressed(url)
+            }
+        })
+    }
+}
+
+enum ReservationButtonUIMode {
+    case bookable(url: URL)
+    case notBookable
+    
+    var title: String {
+        switch self {
+        case .bookable:
+            "Réserver"
+        case .notBookable:
+            "Non réservable"
+        }
+    }
+    
+    var url: URL? {
+        switch self {
+        case .bookable(let url):
+           return url
+        case .notBookable:
+            return nil
+        }
+    }
+    
+    var titleColor: Color {
+        switch self {
+        case .bookable:
+            Color("Wwhite")
+            
+        case .notBookable:
+            Color("AccentColor")
+        }
+    }
+    
+    var bgColor: Color {
+        switch self {
+        case .bookable:
+            Color("AccentColor")
+        case .notBookable:
+            Color("Wwhite")
+        }
+    }
+    
+    var borderColor: Color {
+        switch self {
+        case .bookable,
+             .notBookable:
+            Color("AccentColor")
+        }
+    }
+    
+    var borderSize: CGFloat {
+        switch self {
+        case .bookable:
+            0
+        case .notBookable:
+            2
+        }
+    }
+}
+
+extension AsyncImagePhase {
+    var image: Image {
+        switch self {
+        case .empty, .failure:
+            Image("placeholder")
+        case .success(let image):
+            image
+        @unknown default:
+            Image("placeholder")
+        }
+    }
+}
+
+struct PText: View {
+    var text: String
+    var textColor: Color
+    
+    init(text: String, textColor: Color = Color("Wblack")) {
+        self.text = text
+        self.textColor = textColor
+    }
+    
+    var body: some View {
+        Text(self.text)
+            .fontWeight(.medium)
+            .foregroundStyle(textColor)
+    }
+}
+
+struct CategoryView: View {
+    @State private var isPressed: Bool
+    var category: Category
+    var categoryMode: CategoryMode
+    
+    init(category: Category, categoryMode: CategoryMode = .normal) {
+        self.category = category
+        self.categoryMode = categoryMode
+        
+        switch categoryMode {
+        case .clickable(let isPressed, _):
+            self.isPressed = isPressed
+        case .normal:
+            self.isPressed = false
+        }
+    }
+    
+    var body: some View {
+        HStack(spacing: 4) {
+            Image(systemName: self.category.icon)
+                .foregroundStyle(self.category.color)
+            Text(self.category.title.lowercased())
+                .font(.system(.footnote, design: .serif, weight: .light))
+                .foregroundStyle(self.category.color)
+                .fixedSize()
+        }
+        .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
+        .background(content: {
+            self.category.color.opacity(0.1)
+        })
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(self.category.color, lineWidth: self.isPressed ? 4 : 0)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .onTapGesture {
+            switch self.categoryMode {
+            case .normal: ()
+            case .clickable(_, let onPressed):
+                self.isPressed.toggle()
+                onPressed(self.isPressed)
+            }
+        }
+    }
+}
+
+enum CategoryMode {
+    case clickable(isAlreadyPressed: Bool, onPressed: (Bool) -> Void)
+    case normal
+}
 

@@ -7,6 +7,7 @@ extension ShipViewProtocol {
     ///   - onDismiss: () -> Void
     /// - Returns: some View
     @ViewBuilder func setupNavigation(_ selectedRoute: Binding<ShipRoute>,
+                                      _ settingsDetent: Binding<PresentationDetent>,
                                       onDismiss: (() -> Void)? = nil) -> some View {
         switch selectedRoute.wrappedValue.navigationEvent {
         // Apply a navigationLinkView to the view in order to push it
@@ -18,10 +19,11 @@ extension ShipViewProtocol {
                 } label: { EmptyView() }
             }
         // Apply .sheet modifier in order to present it modally
-        case .modal:
+        case .modal(let detents):
             self.sheet(isPresented: selectedRoute.isPresented,
                        onDismiss: onDismiss) {
                 selectedRoute.destinationView.wrappedValue
+                    .presentationDetents(detents, selection: settingsDetent)
             }
         // Embed the view in DismissContainerView in order to dismiss it
         case .pop:

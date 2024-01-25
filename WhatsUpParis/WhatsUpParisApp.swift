@@ -2,18 +2,14 @@ import SwiftUI
 
 @main
 struct WhatsUpParisApp: App {
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Wblack")]
+        UINavigationBar.appearance().barTintColor = UIColor(named: "Wwhite")
+    }
     var body: some Scene {
         WindowGroup {
-            TabView {
-                DiscoveryBuilder().createModule()
-                    .tabItem {
-                        Label("Discovery", systemImage: "house")
-                            .foregroundColor(Color("Wwhite"))
-                    }
-                    .toolbarBackground(Color("Wwhite").opacity(0.1), for: .tabBar)
-                    .toolbarBackground(.visible, for: .tabBar)
-            }
+            DiscoveryBuilder().createModule()
+                .accentColor(Color("AccentColor"))
         }
-        
     }
 }
