@@ -25,7 +25,7 @@ enum Accessibility: String, Codable {
     }
 }
 
-enum Category: CaseIterable {
+public enum Category: CaseIterable {
     case enfants
     case musique
     case plasticArts

@@ -2,6 +2,7 @@ import Foundation
 
 /// Event object
 struct Event {
+    let uniqueId = UUID()
     var id: String
     var title: String
     var leadText: String

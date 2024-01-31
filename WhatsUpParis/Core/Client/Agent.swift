@@ -58,10 +58,10 @@ enum Endpoints {
     /// EndPoint url Request Headers
     var urlRequestHeaders: [String: String] {
         switch self {
-        case    .whatToDoInParis:
+        case .whatToDoInParis:
             return [
-                "Content-Type": "charset=utf-8",
-                "Accept-Encoding": "br"
+                "Accept-Encoding": "br",
+                "Content-Encoding": "br"
             ]
         }
     }
