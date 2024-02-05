@@ -31,7 +31,6 @@
 		03F3DD8C2B35582B000F17A7 /* Optional+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3DD8B2B35582B000F17A7 /* Optional+Utils.swift */; };
 		03F3DD8E2B355A10000F17A7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3DD8D2B355A10000F17A7 /* Event.swift */; };
 		03F3E65A2B1D969200635600 /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E63D2B1D969200635600 /* BuilderProtocol.swift */; };
-		03F3E66C2B1D96AB00635600 /* NavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +60,6 @@
 		03F3DD8B2B35582B000F17A7 /* Optional+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Utils.swift"; sourceTree = "<group>"; };
 		03F3DD8D2B355A10000F17A7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		03F3E63D2B1D969200635600 /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
-		03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +76,6 @@
 		030E5E0E2B15B86B00772AC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				03F3E66B2B1D96AB00635600 /* NavigationEvent.swift */,
 				030E5E0C2B15B86200772AC7 /* EventTag.swift */,
 				03F3DD8D2B355A10000F17A7 /* Event.swift */,
 			);
@@ -351,7 +348,6 @@
 			files = (
 				0344E1132B67D62C004D5F63 /* CategoryMode.swift in Sources */,
 				033558852B2C2BE5004D0795 /* String+Utils.swift in Sources */,
-				03F3E66C2B1D96AB00635600 /* NavigationEvent.swift in Sources */,
 				03F3E65A2B1D969200635600 /* BuilderProtocol.swift in Sources */,
 				03F3DD8C2B35582B000F17A7 /* Optional+Utils.swift in Sources */,
 				0344E1002B67D215004D5F63 /* DiscoveryDataState.swift in Sources */,

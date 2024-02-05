@@ -7,6 +7,7 @@ import Foundation
 extension String {
     var formattedTag: String {
         return self
+            .lowercased()
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "-", with: " ")
     }

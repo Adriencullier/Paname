@@ -5,7 +5,7 @@ enum PriceType: String, Codable {
     case gratuit
 }
 
-struct EventEntity: Codable {
+struct EventEntity: Codable, Equatable {
     var id : String?
     var title: String?
     var leadText: String?
@@ -21,6 +21,7 @@ struct EventEntity: Codable {
     var zipCode: String?
     var addressCity: String?
     var priceType: String?
+    var occurrences: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -38,6 +39,7 @@ struct EventEntity: Codable {
         case blind = "blind"
         case deaf = "deaf"
         case priceType = "price_type"
+        case occurrences = "occurrences"
     }
 }
 
@@ -69,16 +71,38 @@ enum ServiceDataState {
     case none
 }
 
+class Weak<T: Identifiable & AnyObject>: Hashable {
+    static func == (lhs: Weak<T>, rhs: Weak<T>) -> Bool {
+        lhs.value?.id == rhs.value?.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.value?.id)
+    }
+    
+  weak var value : T?
+  init (value: T) {
+    self.value = value
+  }
+}
+
 protocol ObservableService {
     associatedtype DataType
-    var serviceObserver: (any ServiceObserver)? { get }
+    var observers: Set<Weak<ServiceObserver>> { get set}
     var dataKey: DataKey { get }
     var data: DataType { get }
 }
 
 extension ObservableService {
+    
+    mutating func addObserver<T: ServiceObserver>(_ observer: T) {
+        self.observers.insert(Weak(value: observer))
+    }
+    
     func updateObservers(state: ServiceDataState) {
-        self.serviceObserver?.dataNeedsToBeUpdated(key: self.dataKey, state: state)
+        observers.forEach { observer in
+            observer.value?.dataNeedsToBeUpdated(key: self.dataKey, state: state)
+        }
     }
 }
 
@@ -87,26 +111,64 @@ enum DataKey {
     case discoveryFilters
 }
 
-protocol ServiceObserver: AnyObject {
-    func dataNeedsToBeUpdated(key: DataKey, state: ServiceDataState)
+class ServiceObserver: Identifiable {
+    var id = UUID()
+    
+    func dataNeedsToBeUpdated(key: DataKey, state: ServiceDataState) {
+        fatalError()
+    }
 }
 
-class EventService: ObservableService {
-    weak var serviceObserver: (any ServiceObserver)?
-    
+class EventService: ServiceObserver, ObservableService {
+    private unowned var filterService: DiscoveryFiltersService
+    var observers: Set<Weak<ServiceObserver>> = []
+        
     var dataKey: DataKey { return .events }
     
     typealias DataType = [Event]
     @Published var state: ServiceDataState = .none
-//    var discoveryFilters: DiscoveryFilters
+
+    var filteredData: [Event] = []
     var data : [Event] = []
     var totalCount: Int = 0
-    var page: Int = 1
+    var page: Int = 0
     var elementPerPage = 20
     var paginator = Paginator()
     var defaultParams: [URLQueryItem] {
-        [ URLQueryItem(name: "limit", value: String(self.paginator.hitsPerPage)),
-          URLQueryItem(name: "offset", value: String(self.paginator.page))]
+        [ 
+            URLQueryItem(name: "limit", value: String(self.paginator.hitsPerPage)),
+            URLQueryItem(name: "offset", value: String(100 * self.paginator.page + 1))
+        ]
+    }
+    
+    init(filterService: DiscoveryFiltersService) {
+        self.filterService = filterService
+        super.init()
+        self.filterService.addObserver(self)
+    }
+    
+    override func dataNeedsToBeUpdated(key: DataKey, state: ServiceDataState) {
+        switch key {
+        case .discoveryFilters:
+            self.updateFilteredData()
+            self.updateObservers(state: .successed)
+        default: ()
+        }
+    }
+    
+    private func updateFilteredData() {
+        self.filteredData = self.data.filter { event in
+            self.eventContainsSelectedDate(event, date: self.filterService.data.date)
+            && event.categories.contains {
+                guard !self.filterService.data.categories.isEmpty else { return true }
+                return self.filterService.data.categories.contains($0) 
+            }
+        }
+    }
+    
+    private func eventContainsSelectedDate(_ event: Event, date: Date?) -> Bool {
+        guard let date else { return true }
+        return event.occurences.contains(where: { $0.isSameDay(date) })
     }
     
     func fetchEvents(params: [URLQueryItem]) {
@@ -114,11 +176,13 @@ class EventService: ObservableService {
             let start = CFAbsoluteTimeGetCurrent()
             self.updateObservers(state: .loading)
             repeat {
-                if self.paginator.page == 1 {
+                self.data += (await self.fetchEvents(params: params) ?? []).compactMap({ Event(eventEntity: $0) })
+                if self.paginator.page == 5 {
+                    self.updateFilteredData()
                     self.updateObservers(state: .successed)
                 }
-                self.data += (await self.fetchEvents(params: params) ?? []).compactMap({ Event(eventEntity: $0) })
             } while (self.paginator.hasNextPage)
+            self.updateFilteredData()
             self.updateObservers(state: .successed)
             let diff = CFAbsoluteTimeGetCurrent() - start
             print("Took \(diff) seconds")
@@ -133,9 +197,11 @@ class EventService: ObservableService {
                     )
                     switch result {
                     case .success(let events):
-                        if self.paginator.hasNextPage {
-                            self.paginator.setMaxPage(events.nbResults)
+                        if !events.results.isEmpty {
+//                            self.paginator.setMaxPage(events.nbResults)
                             self.paginator.incrementPage()
+                        } else {
+                            self.paginator.hasNextPage = false
                         }
                         self.totalCount = events.nbResults
                         return events.results

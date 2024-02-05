@@ -8,13 +8,7 @@ struct Paginator {
     private var maxPage: Int?
     private(set) var page: Int = 0
     
-    var hasNextPage: Bool {
-        if let maxPage = self.maxPage {
-            return self.page < maxPage
-        } else {
-            return true
-        }
-    }
+    var hasNextPage: Bool = true
     
     // MARK: - Init
     init(hitsPerPage: Int = 100) {
