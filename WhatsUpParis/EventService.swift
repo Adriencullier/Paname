@@ -47,19 +47,12 @@ protocol BaseEntity: Codable {
     associatedtype ResultType: Codable
     
     var results: [ResultType] { get set }
-    var nbResults: Int { get set }
 }
 
 struct EventsResult: BaseEntity {
     typealias ResultType = EventEntity
     
-    var nbResults: Int
     var results: [EventEntity]
-    
-    enum CodingKeys: String, CodingKey {
-        case nbResults = "total_count"
-        case results = "results"
-    }
 }
 
 
@@ -130,17 +123,7 @@ class EventService: ServiceObserver, ObservableService {
 
     var filteredData: [Event] = []
     var data : [Event] = []
-    var totalCount: Int = 0
-    var page: Int = 0
-    var elementPerPage = 20
-    var paginator = Paginator()
-    var defaultParams: [URLQueryItem] {
-        [ 
-            URLQueryItem(name: "limit", value: String(self.paginator.hitsPerPage)),
-            URLQueryItem(name: "offset", value: String(100 * self.paginator.page + 1))
-        ]
-    }
-    
+
     init(filterService: DiscoveryFiltersService) {
         self.filterService = filterService
         super.init()
@@ -173,38 +156,22 @@ class EventService: ServiceObserver, ObservableService {
     
     func fetchEvents(params: [URLQueryItem]) {
         Task {
-            let start = CFAbsoluteTimeGetCurrent()
             self.updateObservers(state: .loading)
-            repeat {
-                self.data += (await self.fetchEvents(params: params) ?? []).compactMap({ Event(eventEntity: $0) })
-                if self.paginator.page == 5 {
-                    self.updateFilteredData()
-                    self.updateObservers(state: .successed)
-                }
-            } while (self.paginator.hasNextPage)
+            self.data = (await self.fetchEvents())?.compactMap({ Event(eventEntity: $0) }) ?? []
             self.updateFilteredData()
             self.updateObservers(state: .successed)
-            let diff = CFAbsoluteTimeGetCurrent() - start
-            print("Took \(diff) seconds")
         }
     }
     
-    private func fetchEvents(params: [URLQueryItem]) async -> [EventEntity]? {
+    private func fetchEvents() async -> [EventEntity]? {
                 do {
-                    let result: Result<EventsResult, Error> = try await Agent().request(
+                    let result: Result<[EventEntity], Error> = try await Agent().request(
                         endPoint: .whatToDoInParis,
-                        method: .get(params: defaultParams + params)
+                        method: .get
                     )
                     switch result {
                     case .success(let events):
-                        if !events.results.isEmpty {
-//                            self.paginator.setMaxPage(events.nbResults)
-                            self.paginator.incrementPage()
-                        } else {
-                            self.paginator.hasNextPage = false
-                        }
-                        self.totalCount = events.nbResults
-                        return events.results
+                        return events
                     case .failure(let error):
                         print(error.localizedDescription)
                         return nil

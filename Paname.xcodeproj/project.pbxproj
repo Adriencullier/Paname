@@ -22,6 +22,7 @@
 		0344E1112B67D60D004D5F63 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E1102B67D60D004D5F63 /* CategoryView.swift */; };
 		0344E1132B67D62C004D5F63 /* CategoryMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E1122B67D62C004D5F63 /* CategoryMode.swift */; };
 		0344E1172B67F390004D5F63 /* DiscoveryView copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E1162B67F390004D5F63 /* DiscoveryView copy.swift */; };
+		036840872B71186800F739D6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036840862B71186800F739D6 /* Launch Screen.storyboard */; };
 		0393645B2B0F416D008FC275 /* WhatsUpParisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */; };
 		0393645F2B0F416E008FC275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0393645E2B0F416E008FC275 /* Assets.xcassets */; };
 		039364622B0F416E008FC275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039364612B0F416E008FC275 /* Preview Assets.xcassets */; };
@@ -50,6 +51,8 @@
 		0344E1102B67D60D004D5F63 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		0344E1122B67D62C004D5F63 /* CategoryMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMode.swift; sourceTree = "<group>"; };
 		0344E1162B67F390004D5F63 /* DiscoveryView copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscoveryView copy.swift"; sourceTree = "<group>"; };
+		036840862B71186800F739D6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		036840882B711BE000F739D6 /* Paname-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Paname-Info.plist"; sourceTree = "<group>"; };
 		039364572B0F416D008FC275 /* Paname.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paname.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpParisApp.swift; sourceTree = "<group>"; };
 		0393645E2B0F416E008FC275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +174,7 @@
 		0393644E2B0F416D008FC275 = {
 			isa = PBXGroup;
 			children = (
+				036840882B711BE000F739D6 /* Paname-Info.plist */,
 				039364592B0F416D008FC275 /* WhatsUpParis */,
 				039364582B0F416D008FC275 /* Products */,
 			);
@@ -195,6 +199,7 @@
 				0393646A2B0F48D2008FC275 /* EventService.swift */,
 				0393645E2B0F416E008FC275 /* Assets.xcassets */,
 				039364602B0F416E008FC275 /* Preview Content */,
+				036840862B71186800F739D6 /* Launch Screen.storyboard */,
 			);
 			path = WhatsUpParis;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036840872B71186800F739D6 /* Launch Screen.storyboard in Resources */,
 				039364622B0F416E008FC275 /* Preview Assets.xcassets in Resources */,
 				0393645F2B0F416E008FC275 /* Assets.xcassets in Resources */,
 			);
@@ -499,15 +505,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatsUpParis/Preview Content\"";
 				DEVELOPMENT_TEAM = 6NVH37G35U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Paname-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
@@ -515,7 +523,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ac.paname;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -533,15 +542,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"WhatsUpParis/Preview Content\"";
 				DEVELOPMENT_TEAM = 6NVH37G35U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Paname-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
@@ -549,7 +560,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ac.paname;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

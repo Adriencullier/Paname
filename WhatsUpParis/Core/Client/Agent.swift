@@ -29,7 +29,7 @@ struct Paginator {
 /// Aims to list all the possible HTTP methods
 enum HTTPMethod {
     /// get
-    case get(params: [URLQueryItem])
+    case get
     
     var name: String {
         switch self {
@@ -45,7 +45,7 @@ enum Endpoints {
     var fullPath: String {
         switch self {
         case .whatToDoInParis:
-            return "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/que-faire-a-paris-/records?"
+            return "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/que-faire-a-paris-/exports/json"
         }
     }
     
@@ -132,17 +132,7 @@ class Agent {
         // Instanciate urlComponents with endPointUrl
         var urlComponents = URLComponents(url: endPointUrl,
                                           resolvingAgainstBaseURL: true)
-        var queryItems: [URLQueryItem] = []
         var httpBody: Data?
-        
-        switch method {
-        case .get(let params):
-            queryItems = params
-        }
-        // Add queryItems to urlComponent
-        urlComponents?.queryItems = queryItems
-        print(urlComponents?.percentEncodedQuery)
-        
         
         guard let urlForRequest = urlComponents?.url else {
             fatalError("URL With components is not valid")
