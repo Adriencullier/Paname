@@ -36,6 +36,15 @@ public enum Category: CaseIterable {
     case circus
     case danse
     case gratuit
+    case solidarity
+    case history
+    case atelier
+    case inovation
+    case gourmand
+    case humour
+    case conference
+    case brocante
+    case clubbing
     
     var id: UUID { UUID() }
     
@@ -61,6 +70,24 @@ public enum Category: CaseIterable {
             return "Danse"
         case .gratuit:
             return "Gratuit"
+        case .solidarity:
+            return "Solidarité"
+        case .history:
+            return "Histoire"
+        case .atelier:
+            return "Atelier"
+        case .inovation:
+            return "Innovation"
+        case .gourmand:
+            return "Gourmand"
+        case .humour:
+            return "Humour"
+        case .conference:
+            return "Conférence"
+        case .brocante:
+            return "Brocante"
+        case .clubbing:
+            return "Clubbing"
         }
     }
     
@@ -102,6 +129,24 @@ public enum Category: CaseIterable {
             return [.danse]
         case .gratuit:
             return []
+        case .solidarity:
+            return [.solidarity]
+        case .history:
+            return [.history]
+        case .atelier:
+            return [.atelier]
+        case .inovation:
+            return [.inovation]
+        case .gourmand:
+            return [.gourmand]
+        case .humour:
+            return [.humour]
+        case .conference:
+            return [.conference]
+        case .brocante:
+            return [.brocante]
+        case .clubbing:
+            return [.clubbing]
         }
     }
     
@@ -127,6 +172,24 @@ public enum Category: CaseIterable {
             return "figure.dance"
         case .gratuit:
             return "staroflife"
+        case .solidarity:
+            return "heart"
+        case .history:
+            return "flag"
+        case .atelier:
+            return "house"
+        case .inovation:
+            return "lightbulb"
+        case .gourmand:
+            return "fork.knife"
+        case .humour:
+            return "theatermasks"
+        case .conference:
+            return "ellipsis.message"
+        case .brocante:
+            return "chair.lounge"
+        case .clubbing:
+            return "figure.socialdance"
         }
     }
     
@@ -152,6 +215,24 @@ public enum Category: CaseIterable {
             return Color("Wblack")
         case .gratuit:
             return Color("Wblack")
+        case .solidarity:
+            return Color("Wblue")
+        case .history:
+            return Color("Wpurple")
+        case .atelier:
+            return Color("Wred")
+        case .inovation:
+            return Color("Waquablue")
+        case .gourmand:
+            return Color("Wgreen")
+        case .humour:
+            return Color("Worange")
+        case .conference:
+            return Color("Wpink")
+        case .brocante:
+            return Color("WdarkGreen")
+        case .clubbing:
+            return Color("Worange")
         }
     }
     
@@ -187,4 +268,13 @@ enum EventTag: String {
     case circus = "cirque"
     case photo = "photo"
     case streetArt = "street art"
+    case solidarity = "solidarité"
+    case history = "histoire"
+    case atelier = "atelier"
+    case inovation = "innovation"
+    case gourmand = "gourmand"
+    case humour = "humour"
+    case conference = "conférence"
+    case brocante = "brocante"
+    case clubbing = "clubbing"
 }

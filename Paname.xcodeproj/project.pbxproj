@@ -23,6 +23,7 @@
 		0344E1132B67D62C004D5F63 /* CategoryMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E1122B67D62C004D5F63 /* CategoryMode.swift */; };
 		0344E1172B67F390004D5F63 /* DiscoveryView copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E1162B67F390004D5F63 /* DiscoveryView copy.swift */; };
 		036840872B71186800F739D6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036840862B71186800F739D6 /* Launch Screen.storyboard */; };
+		037984E92B73477B0079DA5C /* Audience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037984E82B73477B0079DA5C /* Audience.swift */; };
 		0393645B2B0F416D008FC275 /* WhatsUpParisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */; };
 		0393645F2B0F416E008FC275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0393645E2B0F416E008FC275 /* Assets.xcassets */; };
 		039364622B0F416E008FC275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039364612B0F416E008FC275 /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		0344E1162B67F390004D5F63 /* DiscoveryView copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscoveryView copy.swift"; sourceTree = "<group>"; };
 		036840862B71186800F739D6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		036840882B711BE000F739D6 /* Paname-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Paname-Info.plist"; sourceTree = "<group>"; };
+		037984E82B73477B0079DA5C /* Audience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audience.swift; sourceTree = "<group>"; };
 		039364572B0F416D008FC275 /* Paname.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paname.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0393645A2B0F416D008FC275 /* WhatsUpParisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpParisApp.swift; sourceTree = "<group>"; };
 		0393645E2B0F416E008FC275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				030E5E0C2B15B86200772AC7 /* EventTag.swift */,
 				03F3DD8D2B355A10000F17A7 /* Event.swift */,
+				037984E82B73477B0079DA5C /* Audience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				039364692B0F4514008FC275 /* Agent.swift in Sources */,
 				0344E0C62B622C7B004D5F63 /* CategoriesFilterView.swift in Sources */,
 				0344E10C2B67D599004D5F63 /* EventCard.swift in Sources */,
+				037984E92B73477B0079DA5C /* Audience.swift in Sources */,
 				0344E1112B67D60D004D5F63 /* CategoryView.swift in Sources */,
 				033558832B2C2B8E004D0795 /* DateFormatter+Utils.swift in Sources */,
 				030E5E0D2B15B86200772AC7 /* EventTag.swift in Sources */,

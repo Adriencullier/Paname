@@ -21,7 +21,10 @@ struct EventEntity: Codable, Equatable {
     var zipCode: String?
     var addressCity: String?
     var priceType: String?
+    var dateStart: String?
+    var dateEnd: String?
     var occurrences: String?
+    var audience: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -40,6 +43,9 @@ struct EventEntity: Codable, Equatable {
         case deaf = "deaf"
         case priceType = "price_type"
         case occurrences = "occurrences"
+        case audience = "audience"
+        case dateStart = "date_start"
+        case dateEnd = "date_end"
     }
 }
 
@@ -145,6 +151,10 @@ class EventService: ServiceObserver, ObservableService {
             && event.categories.contains {
                 guard !self.filterService.data.categories.isEmpty else { return true }
                 return self.filterService.data.categories.contains($0) 
+            }
+            && event.audiences.contains {
+                guard !self.filterService.data.audiences.isEmpty else { return true }
+                return self.filterService.data.audiences.contains($0)
             }
         }
     }
