@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		031D83AF2BA5A437006E907C /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 031D83AE2BA5A437006E907C /* Navigation */; };
+		038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */; };
+		038EE62E2B9DA5D60098FD6E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */; };
+		038EE6332B9DA5D60098FD6E /* Paname_DiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6322B9DA5D60098FD6E /* Paname_DiscoveryTests.swift */; };
+		038EE6342B9DA5D60098FD6E /* Paname_Discovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 038EE6262B9DA5D60098FD6E /* Paname_Discovery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		038EE6442B9DA6DD0098FD6E /* Paname_Discovery_demoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6432B9DA6DD0098FD6E /* Paname_Discovery_demoAppApp.swift */; };
+		038EE6482B9DA6DE0098FD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038EE6472B9DA6DE0098FD6E /* Assets.xcassets */; };
+		038EE64B2B9DA6DE0098FD6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038EE64A2B9DA6DE0098FD6E /* Preview Assets.xcassets */; };
+		038EE6532B9DA7320098FD6E /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6522B9DA7320098FD6E /* DiscoveryView.swift */; };
+		038EE6552B9DA7920098FD6E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */; };
+		038EE6562B9DA7920098FD6E /* Paname_Discovery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE65F2B9DAD9E0098FD6E /* DiscoveryViewModel.swift */; };
+		038EE6622B9DAF4A0098FD6E /* Paname_Core in Frameworks */ = {isa = PBXBuildFile; productRef = 038EE6612B9DAF4A0098FD6E /* Paname_Core */; };
+		038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		038EE62F2B9DA5D60098FD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038EE61A2B9DA5D60098FD6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 038EE6222B9DA5D60098FD6E;
+			remoteInfo = Paname_Discovery;
+		};
+		038EE6572B9DA7920098FD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038EE61A2B9DA5D60098FD6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 038EE6222B9DA5D60098FD6E;
+			remoteInfo = Paname_Discovery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		038EE6592B9DA7920098FD6E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				038EE6562B9DA7920098FD6E /* Paname_Discovery.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Paname_Discovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		038EE6262B9DA5D60098FD6E /* Paname_Discovery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paname_Discovery.h; sourceTree = "<group>"; };
+		038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Paname_Discovery.docc; sourceTree = "<group>"; };
+		038EE62D2B9DA5D60098FD6E /* Paname_DiscoveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Paname_DiscoveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		038EE6322B9DA5D60098FD6E /* Paname_DiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paname_DiscoveryTests.swift; sourceTree = "<group>"; };
+		038EE6412B9DA6DD0098FD6E /* Paname_Discovery_demoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paname_Discovery_demoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		038EE6432B9DA6DD0098FD6E /* Paname_Discovery_demoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paname_Discovery_demoAppApp.swift; sourceTree = "<group>"; };
+		038EE6472B9DA6DE0098FD6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		038EE64A2B9DA6DE0098FD6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		038EE6522B9DA7320098FD6E /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		038EE65F2B9DAD9E0098FD6E /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
+		038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryBuilder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		038EE6202B9DA5D60098FD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031D83AF2BA5A437006E907C /* Navigation in Frameworks */,
+				038EE6622B9DAF4A0098FD6E /* Paname_Core in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE62A2B9DA5D60098FD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE62E2B9DA5D60098FD6E /* Paname_Discovery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE63E2B9DA6DD0098FD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE6552B9DA7920098FD6E /* Paname_Discovery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		038EE6192B9DA5D50098FD6E = {
+			isa = PBXGroup;
+			children = (
+				038EE6252B9DA5D60098FD6E /* Paname_Discovery */,
+				038EE6312B9DA5D60098FD6E /* Paname_DiscoveryTests */,
+				038EE6422B9DA6DD0098FD6E /* Paname_Discovery_demoApp */,
+				038EE6242B9DA5D60098FD6E /* Products */,
+				038EE6542B9DA7920098FD6E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		038EE6242B9DA5D60098FD6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */,
+				038EE62D2B9DA5D60098FD6E /* Paname_DiscoveryTests.xctest */,
+				038EE6412B9DA6DD0098FD6E /* Paname_Discovery_demoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		038EE6252B9DA5D60098FD6E /* Paname_Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6672B9DB12C0098FD6E /* Builder */,
+				038EE65E2B9DAD710098FD6E /* ViewModel */,
+				038EE6512B9DA7280098FD6E /* View */,
+				038EE64F2B9DA7000098FD6E /* Utilities */,
+			);
+			path = Paname_Discovery;
+			sourceTree = "<group>";
+		};
+		038EE6312B9DA5D60098FD6E /* Paname_DiscoveryTests */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6322B9DA5D60098FD6E /* Paname_DiscoveryTests.swift */,
+			);
+			path = Paname_DiscoveryTests;
+			sourceTree = "<group>";
+		};
+		038EE6422B9DA6DD0098FD6E /* Paname_Discovery_demoApp */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6432B9DA6DD0098FD6E /* Paname_Discovery_demoAppApp.swift */,
+				038EE6472B9DA6DE0098FD6E /* Assets.xcassets */,
+				038EE6492B9DA6DE0098FD6E /* Preview Content */,
+			);
+			path = Paname_Discovery_demoApp;
+			sourceTree = "<group>";
+		};
+		038EE6492B9DA6DE0098FD6E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				038EE64A2B9DA6DE0098FD6E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		038EE64F2B9DA7000098FD6E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6262B9DA5D60098FD6E /* Paname_Discovery.h */,
+				038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		038EE6512B9DA7280098FD6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6522B9DA7320098FD6E /* DiscoveryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		038EE6542B9DA7920098FD6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		038EE65E2B9DAD710098FD6E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				038EE65F2B9DAD9E0098FD6E /* DiscoveryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		038EE6672B9DB12C0098FD6E /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		038EE61E2B9DA5D60098FD6E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE6342B9DA5D60098FD6E /* Paname_Discovery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		038EE6222B9DA5D60098FD6E /* Paname_Discovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 038EE6372B9DA5D60098FD6E /* Build configuration list for PBXNativeTarget "Paname_Discovery" */;
+			buildPhases = (
+				038EE61E2B9DA5D60098FD6E /* Headers */,
+				038EE61F2B9DA5D60098FD6E /* Sources */,
+				038EE6202B9DA5D60098FD6E /* Frameworks */,
+				038EE6212B9DA5D60098FD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Paname_Discovery;
+			packageProductDependencies = (
+				038EE6612B9DAF4A0098FD6E /* Paname_Core */,
+				031D83AE2BA5A437006E907C /* Navigation */,
+			);
+			productName = Paname_Discovery;
+			productReference = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		038EE62C2B9DA5D60098FD6E /* Paname_DiscoveryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 038EE63A2B9DA5D60098FD6E /* Build configuration list for PBXNativeTarget "Paname_DiscoveryTests" */;
+			buildPhases = (
+				038EE6292B9DA5D60098FD6E /* Sources */,
+				038EE62A2B9DA5D60098FD6E /* Frameworks */,
+				038EE62B2B9DA5D60098FD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				038EE6302B9DA5D60098FD6E /* PBXTargetDependency */,
+			);
+			name = Paname_DiscoveryTests;
+			productName = Paname_DiscoveryTests;
+			productReference = 038EE62D2B9DA5D60098FD6E /* Paname_DiscoveryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		038EE6402B9DA6DD0098FD6E /* Paname_Discovery_demoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 038EE64C2B9DA6DE0098FD6E /* Build configuration list for PBXNativeTarget "Paname_Discovery_demoApp" */;
+			buildPhases = (
+				038EE63D2B9DA6DD0098FD6E /* Sources */,
+				038EE63E2B9DA6DD0098FD6E /* Frameworks */,
+				038EE63F2B9DA6DD0098FD6E /* Resources */,
+				038EE6592B9DA7920098FD6E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				038EE6582B9DA7920098FD6E /* PBXTargetDependency */,
+			);
+			name = Paname_Discovery_demoApp;
+			productName = Paname_Discovery_demoApp;
+			productReference = 038EE6412B9DA6DD0098FD6E /* Paname_Discovery_demoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		038EE61A2B9DA5D60098FD6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					038EE6222B9DA5D60098FD6E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					038EE62C2B9DA5D60098FD6E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					038EE6402B9DA6DD0098FD6E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 038EE61D2B9DA5D60098FD6E /* Build configuration list for PBXProject "Paname_Discovery" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 038EE6192B9DA5D50098FD6E;
+			packageReferences = (
+				031D83AD2BA5A437006E907C /* XCRemoteSwiftPackageReference "SwiftUICleanNavigation" */,
+			);
+			productRefGroup = 038EE6242B9DA5D60098FD6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				038EE6222B9DA5D60098FD6E /* Paname_Discovery */,
+				038EE62C2B9DA5D60098FD6E /* Paname_DiscoveryTests */,
+				038EE6402B9DA6DD0098FD6E /* Paname_Discovery_demoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		038EE6212B9DA5D60098FD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE62B2B9DA5D60098FD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE63F2B9DA6DD0098FD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE64B2B9DA6DE0098FD6E /* Preview Assets.xcassets in Resources */,
+				038EE6482B9DA6DE0098FD6E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		038EE61F2B9DA5D60098FD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */,
+				038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */,
+				038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */,
+				038EE6532B9DA7320098FD6E /* DiscoveryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE6292B9DA5D60098FD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE6332B9DA5D60098FD6E /* Paname_DiscoveryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038EE63D2B9DA6DD0098FD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038EE6442B9DA6DD0098FD6E /* Paname_Discovery_demoAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		038EE6302B9DA5D60098FD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 038EE6222B9DA5D60098FD6E /* Paname_Discovery */;
+			targetProxy = 038EE62F2B9DA5D60098FD6E /* PBXContainerItemProxy */;
+		};
+		038EE6582B9DA7920098FD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 038EE6222B9DA5D60098FD6E /* Paname_Discovery */;
+			targetProxy = 038EE6572B9DA7920098FD6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		038EE6352B9DA5D60098FD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		038EE6362B9DA5D60098FD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		038EE6382B9DA5D60098FD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-Discovery";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		038EE6392B9DA5D60098FD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-Discovery";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		038EE63B2B9DA5D60098FD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-DiscoveryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		038EE63C2B9DA5D60098FD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-DiscoveryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		038EE64D2B9DA6DE0098FD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Paname_Discovery_demoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-Discovery-demoApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		038EE64E2B9DA6DE0098FD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Paname_Discovery_demoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6NVH37G35U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adriencullier.Paname-Discovery-demoApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		038EE61D2B9DA5D60098FD6E /* Build configuration list for PBXProject "Paname_Discovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038EE6352B9DA5D60098FD6E /* Debug */,
+				038EE6362B9DA5D60098FD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		038EE6372B9DA5D60098FD6E /* Build configuration list for PBXNativeTarget "Paname_Discovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038EE6382B9DA5D60098FD6E /* Debug */,
+				038EE6392B9DA5D60098FD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		038EE63A2B9DA5D60098FD6E /* Build configuration list for PBXNativeTarget "Paname_DiscoveryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038EE63B2B9DA5D60098FD6E /* Debug */,
+				038EE63C2B9DA5D60098FD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		038EE64C2B9DA6DE0098FD6E /* Build configuration list for PBXNativeTarget "Paname_Discovery_demoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038EE64D2B9DA6DE0098FD6E /* Debug */,
+				038EE64E2B9DA6DE0098FD6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		031D83AD2BA5A437006E907C /* XCRemoteSwiftPackageReference "SwiftUICleanNavigation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Adriencullier/SwiftUICleanNavigation.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		031D83AE2BA5A437006E907C /* Navigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 031D83AD2BA5A437006E907C /* XCRemoteSwiftPackageReference "SwiftUICleanNavigation" */;
+			productName = Navigation;
+		};
+		038EE6612B9DAF4A0098FD6E /* Paname_Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Paname_Core;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 038EE61A2B9DA5D60098FD6E /* Project object */;
+}

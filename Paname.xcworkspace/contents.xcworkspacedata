@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Paname_Core/Paname_Core">
+   </FileRef>
+   <FileRef
+      location = "group:Application/Paname_Application/Paname_Application.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/Paname_Discovery/Paname_Discovery.xcodeproj">
+   </FileRef>
+</Workspace>

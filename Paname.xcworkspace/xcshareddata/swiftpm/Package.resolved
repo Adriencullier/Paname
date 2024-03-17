@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftuicleannavigation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adriencullier/SwiftUICleanNavigation.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0ae83aa2dc4bbb97264bfa7cf022e1786451ea80"
+      }
+    }
+  ],
+  "version" : 2
+}
