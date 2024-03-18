@@ -1,12 +1,12 @@
 import SwiftUI
-import Paname_Discovery
+import Paname_Tabbar
 
 @main
 struct Paname_ApplicationApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                DiscoveryBuiler.createModule(payload: DiscoveryPayload())
+                TabbarBuilder.createModule(payload: TabbarPayload(items: PanamTabItem.allCases))
             }
         }
     }

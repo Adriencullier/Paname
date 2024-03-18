@@ -13,8 +13,12 @@
 		038EE6012B9DA59F0098FD6E /* Paname_ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6002B9DA59F0098FD6E /* Paname_ApplicationTests.swift */; };
 		038EE60B2B9DA59F0098FD6E /* Paname_ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE60A2B9DA59F0098FD6E /* Paname_ApplicationUITests.swift */; };
 		038EE60D2B9DA59F0098FD6E /* Paname_ApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE60C2B9DA59F0098FD6E /* Paname_ApplicationUITestsLaunchTests.swift */; };
-		038EE6642B9DB10C0098FD6E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6632B9DB10C0098FD6E /* Paname_Discovery.framework */; };
-		038EE6652B9DB10C0098FD6E /* Paname_Discovery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6632B9DB10C0098FD6E /* Paname_Discovery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03A224202BA731F800DD4D0E /* Paname_Tabbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A2241A2BA72DD200DD4D0E /* Paname_Tabbar.framework */; };
+		03A224212BA731F800DD4D0E /* Paname_Tabbar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03A2241A2BA72DD200DD4D0E /* Paname_Tabbar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03A224232BA731FA00DD4D0E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A2241D2BA731C500DD4D0E /* Paname_Discovery.framework */; };
+		03A224242BA731FA00DD4D0E /* Paname_Discovery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03A2241D2BA731C500DD4D0E /* Paname_Discovery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03A224262BA7348400DD4D0E /* Paname_Core in Frameworks */ = {isa = PBXBuildFile; productRef = 03A224252BA7348400DD4D0E /* Paname_Core */; };
+		03AEB62A2BA7219A00372CE7 /* PanamTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AEB6292BA7219A00372CE7 /* PanamTabItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		038EE6662B9DB10C0098FD6E /* Embed Frameworks */ = {
+		03A224222BA731F800DD4D0E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				038EE6652B9DB10C0098FD6E /* Paname_Discovery.framework in Embed Frameworks */,
+				03A224212BA731F800DD4D0E /* Paname_Tabbar.framework in Embed Frameworks */,
+				03A224242BA731FA00DD4D0E /* Paname_Discovery.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +64,10 @@
 		038EE60A2B9DA59F0098FD6E /* Paname_ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paname_ApplicationUITests.swift; sourceTree = "<group>"; };
 		038EE60C2B9DA59F0098FD6E /* Paname_ApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paname_ApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		038EE6632B9DB10C0098FD6E /* Paname_Discovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Paname_Discovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A2241A2BA72DD200DD4D0E /* Paname_Tabbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Paname_Tabbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A2241D2BA731C500DD4D0E /* Paname_Discovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Paname_Discovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03AEB6292BA7219A00372CE7 /* PanamTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanamTabItem.swift; sourceTree = "<group>"; };
+		03AEB62B2BA7231E00372CE7 /* Paname_Tabbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Paname_Tabbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038EE6642B9DB10C0098FD6E /* Paname_Discovery.framework in Frameworks */,
+				03A224202BA731F800DD4D0E /* Paname_Tabbar.framework in Frameworks */,
+				03A224232BA731FA00DD4D0E /* Paname_Discovery.framework in Frameworks */,
+				03A224262BA7348400DD4D0E /* Paname_Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +122,7 @@
 		038EE5EE2B9DA59E0098FD6E /* Paname_Application */ = {
 			isa = PBXGroup;
 			children = (
+				03AEB6282BA7218C00372CE7 /* Sources */,
 				038EE5EF2B9DA59E0098FD6E /* Paname_ApplicationApp.swift */,
 				038EE5F32B9DA59F0098FD6E /* Assets.xcassets */,
 				038EE5F52B9DA59F0098FD6E /* Preview Content */,
@@ -146,9 +158,20 @@
 		038EE65A2B9DAA870098FD6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03A2241D2BA731C500DD4D0E /* Paname_Discovery.framework */,
+				03A2241A2BA72DD200DD4D0E /* Paname_Tabbar.framework */,
+				03AEB62B2BA7231E00372CE7 /* Paname_Tabbar.framework */,
 				038EE6632B9DB10C0098FD6E /* Paname_Discovery.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03AEB6282BA7218C00372CE7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				03AEB6292BA7219A00372CE7 /* PanamTabItem.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +184,7 @@
 				038EE5E82B9DA59E0098FD6E /* Sources */,
 				038EE5E92B9DA59E0098FD6E /* Frameworks */,
 				038EE5EA2B9DA59E0098FD6E /* Resources */,
-				038EE6662B9DB10C0098FD6E /* Embed Frameworks */,
+				03A224222BA731F800DD4D0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +192,7 @@
 			);
 			name = Paname_Application;
 			packageProductDependencies = (
+				03A224252BA7348400DD4D0E /* Paname_Core */,
 			);
 			productName = Paname_Application;
 			productReference = 038EE5EC2B9DA59E0098FD6E /* Paname_Application.app */;
@@ -286,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AEB62A2BA7219A00372CE7 /* PanamTabItem.swift in Sources */,
 				038EE5F02B9DA59E0098FD6E /* Paname_ApplicationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +647,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03A224252BA7348400DD4D0E /* Paname_Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Paname_Core;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 038EE5E42B9DA59E0098FD6E /* Project object */;
 }

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Features/Paname_Tabbar/Paname_Tabbar.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Paname_Core/Paname_Core">
    </FileRef>
    <FileRef
