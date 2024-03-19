@@ -63,6 +63,7 @@ struct EventsResult: BaseEntity {
 
 
 struct APIError: Error {}
+<<<<<<< HEAD
 enum ServiceDataState {
     case successed
     case failed(error: Error)
@@ -191,5 +192,43 @@ class EventService: ServiceObserver, ObservableService {
                     print(error.localizedDescription)
                     return nil
                 }
+=======
+
+actor EventService {
+
+    var totalCount: Int = 0
+    var page: Int = 1
+    var elementPerPage = 20
+    var paginator = Paginator()
+    var defaultParams: [URLQueryItem] {
+        [ URLQueryItem(name: "limit", value: String(self.paginator.hitsPerPage)),
+          URLQueryItem(name: "offset", value: String(self.paginator.page))]
+    }
+    
+    func fetchEvents(params: [URLQueryItem]) async -> [EventEntity]? {
+        do {
+            let result: Result<EventsResult, Error> = try await Agent().request(
+                endPoint: .whatToDoInParis,
+                method: .get(params: defaultParams + params)
+            )
+            switch result {
+            case .success(let events):
+                if self.paginator.hasNextPage {
+                    self.paginator.setMaxPage(events.nbResults)
+                    self.paginator.incrementPage()
+                }
+                self.totalCount = events.nbResults
+                return events.results
+            case .failure(let error):
+                print(error.localizedDescription)
+                return nil
+            }
+        }
+        
+        catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+>>>>>>> parent of 78ecde8 (wip: remove custom navigation)
     }
 }

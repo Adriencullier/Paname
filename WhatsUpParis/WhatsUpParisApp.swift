@@ -2,16 +2,16 @@ import SwiftUI
 
 @main
 struct WhatsUpParisApp: App {
-    let discoveryFiltersService: DiscoveryFiltersService
-    let eventService: EventService
-    
     init() {
+<<<<<<< HEAD
         self.discoveryFiltersService = DiscoveryFiltersService()
         self.eventService = EventService(filterService: discoveryFiltersService)
+=======
+>>>>>>> parent of 78ecde8 (wip: remove custom navigation)
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Wblack")]
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "Wblack")]
         UINavigationBar.appearance().barTintColor = UIColor(named: "Wwhite")
     }
+<<<<<<< HEAD
     
     var body: some Scene {
         WindowGroup {
@@ -25,6 +25,12 @@ struct WhatsUpParisApp: App {
                 }
                 .navigationViewStyle(.stack)
             }
+=======
+    var body: some Scene {
+        WindowGroup {
+            DiscoveryBuilder().createModule()
+                .accentColor(Color("AccentColor"))
+>>>>>>> parent of 78ecde8 (wip: remove custom navigation)
         }
     }
 }

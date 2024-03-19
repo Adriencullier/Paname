@@ -2,7 +2,11 @@ import Foundation
 
 /// Event object
 struct Event {
+<<<<<<< HEAD
     var id: String?
+=======
+    var id: String
+>>>>>>> parent of 78ecde8 (wip: remove custom navigation)
     var title: String
     var leadText: String
     var categories: [Category] = []

@@ -1,7 +1,6 @@
-import SwiftUI
+import Foundation
 
 protocol BuilderProtocol {
-    associatedtype Content: View
-    func createModule(eventService: EventService,
-                      discoveryFilters: DiscoveryFilters) -> Content
+    associatedtype Content = ShipViewProtocol
+    func createModule() -> Content
 }
