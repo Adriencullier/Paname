@@ -1,10 +1,7 @@
 import SwiftUI
 import Paname_Core
 
-public struct DiscoveryPayload {
-    public init() {}
-}
-
+/// Discovery Builder
 public final class DiscoveryBuiler: BuilderProtocol {
     public typealias Content = DiscoveryView
     public typealias Payload = DiscoveryPayload

@@ -1,6 +1,7 @@
 import SwiftUI
 import Navigation
 
+/// Discovery View
 public struct DiscoveryView: NavView {
     public typealias ViewModel = DiscoveryViewModel
     public var viewModel: DiscoveryViewModel

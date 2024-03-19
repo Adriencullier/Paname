@@ -21,6 +21,9 @@
 		038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE65F2B9DAD9E0098FD6E /* DiscoveryViewModel.swift */; };
 		038EE6622B9DAF4A0098FD6E /* Paname_Core in Frameworks */ = {isa = PBXBuildFile; productRef = 038EE6612B9DAF4A0098FD6E /* Paname_Core */; };
 		038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */; };
+		0394975E2BA8CA16008BF277 /* DiscoveryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394975D2BA8CA16008BF277 /* DiscoveryPayload.swift */; };
+		039497612BA8CA8B008BF277 /* DiscoveryRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039497602BA8CA8B008BF277 /* DiscoveryRoute.swift */; };
+		039497632BA95C19008BF277 /* DiscoveryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039497622BA95C19008BF277 /* DiscoveryRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		038EE6522B9DA7320098FD6E /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		038EE65F2B9DAD9E0098FD6E /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
 		038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryBuilder.swift; sourceTree = "<group>"; };
+		0394975D2BA8CA16008BF277 /* DiscoveryPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryPayload.swift; sourceTree = "<group>"; };
+		039497602BA8CA8B008BF277 /* DiscoveryRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRoute.swift; sourceTree = "<group>"; };
+		039497622BA95C19008BF277 /* DiscoveryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		038EE6252B9DA5D60098FD6E /* Paname_Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				0394975F2BA8CA71008BF277 /* Router */,
 				038EE6672B9DB12C0098FD6E /* Builder */,
 				038EE65E2B9DAD710098FD6E /* ViewModel */,
 				038EE6512B9DA7280098FD6E /* View */,
@@ -191,9 +198,19 @@
 		038EE6672B9DB12C0098FD6E /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				0394975D2BA8CA16008BF277 /* DiscoveryPayload.swift */,
 				038EE6682B9DB1390098FD6E /* DiscoveryBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		0394975F2BA8CA71008BF277 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				039497602BA8CA8B008BF277 /* DiscoveryRoute.swift */,
+				039497622BA95C19008BF277 /* DiscoveryRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,7 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0394975E2BA8CA16008BF277 /* DiscoveryPayload.swift in Sources */,
 				038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */,
+				039497632BA95C19008BF277 /* DiscoveryRouter.swift in Sources */,
+				039497612BA8CA8B008BF277 /* DiscoveryRoute.swift in Sources */,
 				038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */,
 				038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */,
 				038EE6532B9DA7320098FD6E /* DiscoveryView.swift in Sources */,
