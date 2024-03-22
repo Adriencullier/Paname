@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CacheManager">
+   </FileRef>
+   <FileRef
       location = "group:Paname_Core/Paname_Core">
    </FileRef>
    <FileRef
