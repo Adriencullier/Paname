@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0306A48A2BACC9A100B242EE /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306A4892BACC9A100B242EE /* EventCard.swift */; };
+		0306A48E2BACD19500B242EE /* ReservationButtonUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306A48D2BACD19500B242EE /* ReservationButtonUIMode.swift */; };
+		0306A4912BAD600C00B242EE /* EventCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306A4902BAD600C00B242EE /* EventCardViewModel.swift */; };
 		031D83AF2BA5A437006E907C /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 031D83AE2BA5A437006E907C /* Navigation */; };
 		038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */; };
 		038EE62E2B9DA5D60098FD6E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */; };
@@ -59,6 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0306A4892BACC9A100B242EE /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		0306A48D2BACD19500B242EE /* ReservationButtonUIMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationButtonUIMode.swift; sourceTree = "<group>"; };
+		0306A4902BAD600C00B242EE /* EventCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardViewModel.swift; sourceTree = "<group>"; };
 		038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Paname_Discovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		038EE6262B9DA5D60098FD6E /* Paname_Discovery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paname_Discovery.h; sourceTree = "<group>"; };
 		038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Paname_Discovery.docc; sourceTree = "<group>"; };
@@ -106,6 +112,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0306A4882BACC98F00B242EE /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				0306A48F2BAD5FE800B242EE /* EventCard */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		0306A48C2BACD17D00B242EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0306A48D2BACD19500B242EE /* ReservationButtonUIMode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0306A48F2BAD5FE800B242EE /* EventCard */ = {
+			isa = PBXGroup;
+			children = (
+				0306A4892BACC9A100B242EE /* EventCard.swift */,
+				0306A4902BAD600C00B242EE /* EventCardViewModel.swift */,
+			);
+			path = EventCard;
+			sourceTree = "<group>";
+		};
 		038EE6192B9DA5D50098FD6E = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				038EE6522B9DA7320098FD6E /* DiscoveryView.swift */,
+				0306A4882BACC98F00B242EE /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +248,7 @@
 		039497662BA95EC2008BF277 /* DiscoveryView */ = {
 			isa = PBXGroup;
 			children = (
+				0306A48C2BACD17D00B242EE /* Models */,
 				0394975F2BA8CA71008BF277 /* Router */,
 				038EE6672B9DB12C0098FD6E /* Builder */,
 				038EE65E2B9DAD710098FD6E /* ViewModel */,
@@ -380,13 +413,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0306A4912BAD600C00B242EE /* EventCardViewModel.swift in Sources */,
 				0394975E2BA8CA16008BF277 /* DiscoveryPayload.swift in Sources */,
+				0306A48E2BACD19500B242EE /* ReservationButtonUIMode.swift in Sources */,
 				038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */,
 				039497632BA95C19008BF277 /* DiscoveryRouter.swift in Sources */,
 				039497612BA8CA8B008BF277 /* DiscoveryRoute.swift in Sources */,
 				038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */,
 				038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */,
 				039497692BA95EF1008BF277 /* PScrollView.swift in Sources */,
+				0306A48A2BACC9A100B242EE /* EventCard.swift in Sources */,
 				038EE6532B9DA7320098FD6E /* DiscoveryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

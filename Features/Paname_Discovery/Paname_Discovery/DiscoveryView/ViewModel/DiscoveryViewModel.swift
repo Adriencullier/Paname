@@ -10,6 +10,15 @@ public final class DiscoveryViewModel: NavViewModel {
     @Published public var router: DiscoveryRouter
     
     public var subscription: AnyCancellable?
+    var eventCardViewModels: [EventCardViewModel] = [
+        EventCardViewModel(title: "Le top du top",
+                           address: "Dans Paris",
+                           leadText: "Ceci est un super évènement",
+                           dateDescription: "lundi 3 janvier",
+                           categories: [],
+                           accessUrlStr: "",
+                           onBookingButtonPressed: {_ in})
+    ]
     
     public init(router: DiscoveryRouter) {
         self.router = router
