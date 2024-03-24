@@ -1,5 +1,5 @@
 import SwiftUI
-import Paname_Core
+import Paname_BaseUI
 
 struct EventCard: View, Identifiable {
     var id: UUID = UUID()

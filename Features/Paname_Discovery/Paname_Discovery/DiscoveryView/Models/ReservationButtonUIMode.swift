@@ -1,5 +1,5 @@
 import SwiftUI
-import Paname_Core
+import Paname_BaseUI
 
 enum ReservationButtonUIMode {
     case bookable(url: URL)
