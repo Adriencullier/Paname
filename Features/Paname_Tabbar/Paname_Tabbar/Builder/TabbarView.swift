@@ -14,7 +14,7 @@ public struct TabbarView: View {
     public var body: some View {
         TabView(selection: .constant(1)) {
             ForEach(self.viewModel.tabItems, id: \.id) { item in
-                item.view
+                item.getView(appRouter: self.viewModel.appRouter)
                     .tabItem {
                         Label {
                             Text(item.title)

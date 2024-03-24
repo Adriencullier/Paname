@@ -9,5 +9,5 @@ public protocol TabItem {
     /// Tab item system icon
     var icon: String { get }
     /// Tab item view
-    var view: AnyView { get }
+    func getView(appRouter: AppRouter) -> AnyView
 }

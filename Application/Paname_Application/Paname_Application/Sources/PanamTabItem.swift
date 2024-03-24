@@ -22,11 +22,11 @@ enum PanamTabItem: CaseIterable, TabItem {
         }
     }
     
-    var view: AnyView {
+    func getView(appRouter: AppRouter) -> AnyView {
         switch self {
         case .discovery:
             return AnyView(
-                DiscoveryBuiler.createModule(payload: DiscoveryPayload())
+                DiscoveryBuiler.createModule(payload: DiscoveryPayload(imageCache: appRouter.imageCache))
             )
         case .favorites, .settings:
             return AnyView(Text(self.title))

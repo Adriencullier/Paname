@@ -8,7 +8,7 @@ public final class DiscoveryBuiler: BuilderProtocol {
     
     public static func createModule(payload: DiscoveryPayload) -> DiscoveryView {
         let router = DiscoveryRouter()
-        let viewModel = DiscoveryViewModel(router: router)
+        let viewModel = DiscoveryViewModel(router: router, imageCache: payload.imageCache)
         return DiscoveryView(viewModel: viewModel)
     }
 }

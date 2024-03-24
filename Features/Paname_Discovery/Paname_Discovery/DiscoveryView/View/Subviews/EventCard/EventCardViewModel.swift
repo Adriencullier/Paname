@@ -1,11 +1,16 @@
 import Foundation
+import SwiftUI
+import CacheManager
+import Paname_Core
 
 final class EventCardViewModel {
+    unowned let imageCache: ViewCache<Image>
     let title: String
     let address: String
     let leadText: String
     let dateDescription: String
     let categories: [Category]
+    let coverUrlStr: String
     let onBookingButtonPressed: (_ url: URL) -> Void
     
     var reservationButtonMode: ReservationButtonUIMode = .notBookable
@@ -15,7 +20,9 @@ final class EventCardViewModel {
          leadText: String,
          dateDescription: String,
          categories: [Category],
+         coverUrlStr: String,
          accessUrlStr: String,
+         imageCache: ViewCache<Image>,
          onBookingButtonPressed: @escaping (_: URL) -> Void) {
         self.title = title
         self.address = address
@@ -25,6 +32,8 @@ final class EventCardViewModel {
         if let url = URL(string: accessUrlStr) {
             self.reservationButtonMode = .bookable(url: url)
         }
+        self.coverUrlStr = coverUrlStr
+        self.imageCache = imageCache
         self.onBookingButtonPressed = onBookingButtonPressed
     }
 }

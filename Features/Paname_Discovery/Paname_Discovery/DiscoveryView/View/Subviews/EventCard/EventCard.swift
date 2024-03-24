@@ -11,16 +11,14 @@ struct EventCard: View, Identifiable {
     public var body: some View {
         VStack {
             coverImage
-                .clipShape(RoundedRectangle(cornerRadius: 8))
             content
         }
     }
     
     var coverImage: some View {
-        EmptyView()
-//        CacheAsyncImage(url: event.coverUrl) {
-//            $0.image.resizable().scaledToFit().clipped()
-//        }
+        CachedAsyncImage(imageCache: self.viewModel.imageCache, urlStr: self.viewModel.coverUrlStr)
+            .scaledToFill()
+            .frame(width: 100, height: 100, alignment: .center)
     }
     
     var titleView: some View {

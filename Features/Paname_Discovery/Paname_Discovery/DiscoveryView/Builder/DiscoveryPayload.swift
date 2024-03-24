@@ -1,5 +1,9 @@
-import Foundation
+import SwiftUI
+import CacheManager
 
 public struct DiscoveryPayload {
-    public init() {}
+    public let imageCache: ViewCache<Image>
+    public init(imageCache: ViewCache<Image>) {
+        self.imageCache = imageCache
+    }
 }

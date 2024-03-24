@@ -11,6 +11,7 @@
 		0306A48E2BACD19500B242EE /* ReservationButtonUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306A48D2BACD19500B242EE /* ReservationButtonUIMode.swift */; };
 		0306A4912BAD600C00B242EE /* EventCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306A4902BAD600C00B242EE /* EventCardViewModel.swift */; };
 		031D83AF2BA5A437006E907C /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 031D83AE2BA5A437006E907C /* Navigation */; };
+		0370646A2BAF0CED00A28895 /* CacheManager in Frameworks */ = {isa = PBXBuildFile; productRef = 037064692BAF0CED00A28895 /* CacheManager */; };
 		038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6272B9DA5D60098FD6E /* Paname_Discovery.docc */; };
 		038EE62E2B9DA5D60098FD6E /* Paname_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */; };
 		038EE6332B9DA5D60098FD6E /* Paname_DiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EE6322B9DA5D60098FD6E /* Paname_DiscoveryTests.swift */; };
@@ -90,6 +91,7 @@
 			files = (
 				031D83AF2BA5A437006E907C /* Navigation in Frameworks */,
 				038EE6622B9DAF4A0098FD6E /* Paname_Core in Frameworks */,
+				0370646A2BAF0CED00A28895 /* CacheManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +298,7 @@
 			packageProductDependencies = (
 				038EE6612B9DAF4A0098FD6E /* Paname_Core */,
 				031D83AE2BA5A437006E907C /* Navigation */,
+				037064692BAF0CED00A28895 /* CacheManager */,
 			);
 			productName = Paname_Discovery;
 			productReference = 038EE6232B9DA5D60098FD6E /* Paname_Discovery.framework */;
@@ -807,6 +810,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 031D83AD2BA5A437006E907C /* XCRemoteSwiftPackageReference "SwiftUICleanNavigation" */;
 			productName = Navigation;
+		};
+		037064692BAF0CED00A28895 /* CacheManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CacheManager;
 		};
 		038EE6612B9DAF4A0098FD6E /* Paname_Core */ = {
 			isa = XCSwiftPackageProductDependency;

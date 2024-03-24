@@ -7,7 +7,7 @@ public final class TabbarBuilder: BuilderProtocol {
     public typealias Payload = TabbarPayload
     
     public static func createModule(payload: TabbarPayload) -> TabbarView {
-        let viewModel = TabbarViewModel(tabItems: payload.items)
+        let viewModel = TabbarViewModel(appRouter: payload.appRouter, tabItems: payload.items)
         return TabbarView(viewModel: viewModel)
     }
 }
