@@ -30,7 +30,6 @@
 		039497612BA8CA8B008BF277 /* DiscoveryRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039497602BA8CA8B008BF277 /* DiscoveryRoute.swift */; };
 		039497632BA95C19008BF277 /* DiscoveryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039497622BA95C19008BF277 /* DiscoveryRouter.swift */; };
 		039497692BA95EF1008BF277 /* PScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039497682BA95EF1008BF277 /* PScrollView.swift */; };
-		03CC5E462BB297AD0076B786 /* DiscoveryServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC5E452BB297AD0076B786 /* DiscoveryServiceContainer.swift */; };
 		03CC5E492BB297E40076B786 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC5E482BB297E40076B786 /* EventsService.swift */; };
 		03CC5E4F2BB29AE30076B786 /* EventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC5E4E2BB29AE30076B786 /* EventEntity.swift */; };
 		03CC5E522BB29C200076B786 /* DiscoveryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC5E512BB29C200076B786 /* DiscoveryEndpoint.swift */; };
@@ -88,7 +87,6 @@
 		039497602BA8CA8B008BF277 /* DiscoveryRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRoute.swift; sourceTree = "<group>"; };
 		039497622BA95C19008BF277 /* DiscoveryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRouter.swift; sourceTree = "<group>"; };
 		039497682BA95EF1008BF277 /* PScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PScrollView.swift; sourceTree = "<group>"; };
-		03CC5E452BB297AD0076B786 /* DiscoveryServiceContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryServiceContainer.swift; sourceTree = "<group>"; };
 		03CC5E482BB297E40076B786 /* EventsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
 		03CC5E4E2BB29AE30076B786 /* EventEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		03CC5E512BB29C200076B786 /* DiscoveryEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryEndpoint.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				03CC5E502BB29C060076B786 /* Endpoints */,
 				03CC5E4A2BB29AC80076B786 /* Entities */,
 				03CC5E472BB297DA0076B786 /* Services */,
-				03CC5E452BB297AD0076B786 /* DiscoveryServiceContainer.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 				038EE6692B9DB1390098FD6E /* DiscoveryBuilder.swift in Sources */,
 				039497632BA95C19008BF277 /* DiscoveryRouter.swift in Sources */,
 				039497612BA8CA8B008BF277 /* DiscoveryRoute.swift in Sources */,
-				03CC5E462BB297AD0076B786 /* DiscoveryServiceContainer.swift in Sources */,
 				038EE6282B9DA5D60098FD6E /* Paname_Discovery.docc in Sources */,
 				038EE6602B9DAD9E0098FD6E /* DiscoveryViewModel.swift in Sources */,
 				039497692BA95EF1008BF277 /* PScrollView.swift in Sources */,

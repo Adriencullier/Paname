@@ -1,7 +1,6 @@
 import HTTPAgent
 import Paname_Core
 
-
 /// EventsService
 public final class EventsService: ObservableService {
     // MARK: - Typealias

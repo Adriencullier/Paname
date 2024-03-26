@@ -13,17 +13,18 @@ public final class DiscoveryViewModel: NavViewModel, ServiceObserver {
     @Published public var router: DiscoveryRouter
     @Published var eventCardViewModels: [EventCardViewModel] = []
     
-    unowned let imageCache: ViewCache<Image>
+    private unowned let imageCache: DataCache<Data>
     private unowned let eventService: EventsService
+    
     public var subscription: AnyCancellable?
     
     // MARK: - Init
     init(router: DiscoveryRouter,
-         imageCache: ViewCache<Image>,
+         imageCache: DataCache<Data>,
          eventService: EventsService) {
         self.router = router
-        self.imageCache = imageCache
         self.eventService = eventService
+        self.imageCache = imageCache
         self.observeServices([eventService])
         self.eventService.fetchData()
     }

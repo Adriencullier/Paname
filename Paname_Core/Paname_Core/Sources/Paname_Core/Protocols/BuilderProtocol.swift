@@ -3,14 +3,7 @@ import SwiftUI
 public protocol BuilderProtocol {
     associatedtype Content: View
     associatedtype Payload
-
-    var serviceContainer: ServiceContainer? { get }
+    associatedtype Container: ServiceContainer
     
     func createModule(payload: Payload) -> Content
-}
-
-public extension BuilderProtocol {
-    var serviceContainer: ServiceContainer? {
-            return nil
-    }    
 }

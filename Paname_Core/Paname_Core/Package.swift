@@ -13,14 +13,15 @@ let package = Package(
             targets: ["Paname_Core"]),
     ],
     dependencies: [
-        .package(path: "../CacheManager")
+        .package(path: "../CacheManager"),
+        .package(path: "../HTTPAgent")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Paname_Core",
-            dependencies: ["CacheManager"]
+            dependencies: ["CacheManager", "HTTPAgent"]
         ),
         .testTarget(
             name: "Paname_CoreTests",

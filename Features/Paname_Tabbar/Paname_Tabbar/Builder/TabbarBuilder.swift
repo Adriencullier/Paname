@@ -6,6 +6,7 @@ public final class TabbarBuilder: BuilderProtocol {
     // MARK: - Typealias
     public typealias Content = TabbarView
     public typealias Payload = TabbarPayload
+    public typealias Container = TabbarServiceContainer
     
     // MARK: - Init
     public init() {}
@@ -16,3 +17,5 @@ public final class TabbarBuilder: BuilderProtocol {
         return TabbarView(viewModel: viewModel)
     }
 }
+
+public final class TabbarServiceContainer: ServiceContainer {}

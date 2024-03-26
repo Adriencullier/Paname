@@ -4,7 +4,7 @@ import Paname_BaseUI
 struct EventCard: View, Identifiable {
     var id: UUID = UUID()
     
-    private let viewModel: EventCardViewModel
+    @ObservedObject private var viewModel: EventCardViewModel
     public init(viewModel: EventCardViewModel) {
         self.viewModel = viewModel
     }
@@ -13,12 +13,25 @@ struct EventCard: View, Identifiable {
             coverImage
             content
         }
+        .onAppear {
+            self.viewModel.viewDidAppear()
+        }
     }
     
     var coverImage: some View {
-        CachedAsyncImage(imageCache: self.viewModel.imageCache, urlStr: self.viewModel.coverUrlStr)
-            .scaledToFill()
-            .frame(width: 100, height: 100, alignment: .center)
+            if let data = self.viewModel.imageData {
+                Image(uiImage: UIImage(data: data) ?? UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .fixedSize()
+            } else {
+                Image(uiImage: UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .fixedSize()
+            }
     }
     
     var titleView: some View {

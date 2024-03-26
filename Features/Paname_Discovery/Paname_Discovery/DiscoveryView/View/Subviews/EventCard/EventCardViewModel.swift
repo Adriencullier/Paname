@@ -3,22 +3,25 @@ import CacheManager
 import Paname_Core
 
 /// EventCard viewModel
-final class EventCardViewModel {
+final class EventCardViewModel: ObservableObject, DataImageAccess {
     // MARK: - Properties
-    unowned var imageCache: ViewCache<Image>
+    @Published var imageData: Data?
+    
+    unowned let imageCache: DataCache<Data>
     
     var title: String
     var address: String
     var leadText: String
     var dateDescription: String
     var categories: [Category] = []
-    var coverUrlStr: String
     var onBookingButtonPressed: (_ url: URL) -> Void
     var reservationButtonMode: ReservationButtonUIMode = .notBookable
     
+    private var coverUrlStr: String
+    
     // MARK: - Init
     init?(_ eventEntity: EventEntity,
-          imageCache: ViewCache<Image>,
+          imageCache: DataCache<Data>,
           onBookingButtonPressed: @escaping (_: URL) -> Void) {
         self.imageCache = imageCache
         guard let title = eventEntity.title,
@@ -34,5 +37,13 @@ final class EventCardViewModel {
         self.dateDescription = dateDescription
         self.coverUrlStr = coverUrlStr
         self.onBookingButtonPressed = onBookingButtonPressed
+    }
+    
+    func viewDidAppear() {
+        self.getImageData(from: coverUrlStr) { data in
+            DispatchQueue.main.async {
+                self.imageData = data
+            }
+        }
     }
 }
