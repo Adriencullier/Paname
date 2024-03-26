@@ -3,12 +3,18 @@ import Navigation
 
 /// Discovery View
 public struct DiscoveryView: NavView {
+    // MARK: - Typealias
     public typealias ViewModel = DiscoveryViewModel
-    public var viewModel: DiscoveryViewModel
     
+    // MARK: - Properties
+    @ObservedObject public var viewModel: DiscoveryViewModel
+    
+    // MARK: - Content view
     public var content: AnyView {
         AnyView(
-            PScrollView<EventCard>(contents: self.viewModel.eventCardViewModels.map({ EventCard(viewModel: $0) }))
+            PScrollView<EventCard>(self.viewModel.eventCardViewModels.map({
+                EventCard(viewModel: $0)
+            }))
         )
     }
 }

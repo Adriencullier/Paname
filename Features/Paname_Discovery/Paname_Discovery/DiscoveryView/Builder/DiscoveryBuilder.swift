@@ -2,13 +2,23 @@ import SwiftUI
 import Paname_Core
 
 /// Discovery Builder
-public final class DiscoveryBuiler: BuilderProtocol {
+public final class DiscoveryBuiler: BuilderProtocol { 
+    // MARK: - Typealias
     public typealias Content = DiscoveryView
     public typealias Payload = DiscoveryPayload
     
-    public static func createModule(payload: DiscoveryPayload) -> DiscoveryView {
+    // MARK: - Properties
+    public let serviceContainer = DiscoveryServiceContainer()
+    
+    // MARK: - Init
+    public init() {}
+    
+    // MARK: - Public functions
+    public func createModule(payload: DiscoveryPayload) -> DiscoveryView {
         let router = DiscoveryRouter()
-        let viewModel = DiscoveryViewModel(router: router, imageCache: payload.imageCache)
+        let viewModel = DiscoveryViewModel(router: router,
+                                           imageCache: serviceContainer.imageCache,
+                                           eventService: serviceContainer.eventService)
         return DiscoveryView(viewModel: viewModel)
     }
 }

@@ -5,32 +5,42 @@ import Navigation
 import CacheManager
 
 /// Discovery ViewModel
-public final class DiscoveryViewModel: NavViewModel {
+public final class DiscoveryViewModel: NavViewModel, ServiceObserver {
+    // MARK: - Typealias
     public typealias Router = DiscoveryRouter
     
+    // MARK: - Properties
     @Published public var router: DiscoveryRouter
+    @Published var eventCardViewModels: [EventCardViewModel] = []
+    
     unowned let imageCache: ViewCache<Image>
-    
+    private unowned let eventService: EventsService
     public var subscription: AnyCancellable?
-    var eventCardViewModels: [EventCardViewModel] { [
-        EventCardViewModel(title: "Le top du top",
-                           address: "Dans Paris",
-                           leadText: "Ceci est un super évènement",
-                           dateDescription: "lundi 3 janvier",
-                           categories: [],
-                           coverUrlStr: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/1200px-Google_Images_2015_logo.svg.png",
-                           accessUrlStr: "",
-                           imageCache: self.imageCache,
-                           onBookingButtonPressed: {_ in})
-    ]}
     
-    public init(router: DiscoveryRouter, imageCache: ViewCache<Image>) {
+    // MARK: - Init
+    init(router: DiscoveryRouter,
+         imageCache: ViewCache<Image>,
+         eventService: EventsService) {
         self.router = router
         self.imageCache = imageCache
-        self.routerSubscription()
+        self.eventService = eventService
+        self.observeServices([eventService])
+        self.eventService.fetchData()
     }
     
-    public func onDetailPressed() {
+    // MARK: - Public functions
+    public func dataNeedsToBeUpdated(key: ObservedEvent, state: ServiceDataState) {
+        switch key {
+        case .discoveryEvent:
+            DispatchQueue.main.async {
+                self.eventCardViewModels = self.eventService.data.compactMap({
+                    EventCardViewModel($0, imageCache: self.imageCache, onBookingButtonPressed: { _ in }) })
+            }
+        }
+    }
+    
+    // MARK: - Internal functions
+    func onDetailPressed() {
         self.router.navigate(to: .detail)
     }
 }

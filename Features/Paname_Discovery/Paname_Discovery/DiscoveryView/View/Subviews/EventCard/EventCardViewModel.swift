@@ -1,39 +1,38 @@
-import Foundation
 import SwiftUI
 import CacheManager
 import Paname_Core
 
+/// EventCard viewModel
 final class EventCardViewModel {
-    unowned let imageCache: ViewCache<Image>
-    let title: String
-    let address: String
-    let leadText: String
-    let dateDescription: String
-    let categories: [Category]
-    let coverUrlStr: String
-    let onBookingButtonPressed: (_ url: URL) -> Void
+    // MARK: - Properties
+    unowned var imageCache: ViewCache<Image>
     
+    var title: String
+    var address: String
+    var leadText: String
+    var dateDescription: String
+    var categories: [Category] = []
+    var coverUrlStr: String
+    var onBookingButtonPressed: (_ url: URL) -> Void
     var reservationButtonMode: ReservationButtonUIMode = .notBookable
     
-    init(title: String,
-         address: String,
-         leadText: String,
-         dateDescription: String,
-         categories: [Category],
-         coverUrlStr: String,
-         accessUrlStr: String,
-         imageCache: ViewCache<Image>,
-         onBookingButtonPressed: @escaping (_: URL) -> Void) {
+    // MARK: - Init
+    init?(_ eventEntity: EventEntity,
+          imageCache: ViewCache<Image>,
+          onBookingButtonPressed: @escaping (_: URL) -> Void) {
+        self.imageCache = imageCache
+        guard let title = eventEntity.title,
+              let adddress = eventEntity.addressName,
+              let leadText = eventEntity.leadText,
+              let dateDescription = eventEntity.dateDescription,
+              let coverUrlStr = eventEntity.coverUrlStr else {
+            return nil
+        }
         self.title = title
-        self.address = address
+        self.address = adddress
         self.leadText = leadText
         self.dateDescription = dateDescription
-        self.categories = categories
-        if let url = URL(string: accessUrlStr) {
-            self.reservationButtonMode = .bookable(url: url)
-        }
         self.coverUrlStr = coverUrlStr
-        self.imageCache = imageCache
         self.onBookingButtonPressed = onBookingButtonPressed
     }
 }

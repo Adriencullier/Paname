@@ -2,7 +2,11 @@ import SwiftUI
 
 /// Aims to have a a vertical paging scroll behavior (like tik tok)
 struct PScrollView<Content: View & Identifiable>: View {
-    let contents: [Content]
+    private let contents: [Content]
+    
+    init(_ contents: [Content]) {
+        self.contents = contents
+    }
     
     var body: some View {
         GeometryReader { proxy in
