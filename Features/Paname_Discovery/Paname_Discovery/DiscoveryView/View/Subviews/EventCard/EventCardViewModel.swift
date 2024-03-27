@@ -32,10 +32,16 @@ final class EventCardViewModel: ObservableObject, DataImageAccess {
             return nil
         }
         self.title = title
-        self.address = adddress
+        self.address = adddress.uppercased()
         self.leadText = leadText
-        self.dateDescription = dateDescription
+        self.dateDescription = dateDescription.replacingOccurrences(of: "<[^>]+>",
+                                                                    with: " ",
+                                                                    options: .regularExpression)
         self.coverUrlStr = coverUrlStr
+        if let accessUrlStr = eventEntity.accessUrlStr,
+           let url = URL(string: accessUrlStr) {
+            self.reservationButtonMode = .bookable(url: url)
+        }
         self.onBookingButtonPressed = onBookingButtonPressed
     }
     

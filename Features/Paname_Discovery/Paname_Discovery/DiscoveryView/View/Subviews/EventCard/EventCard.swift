@@ -11,26 +11,27 @@ struct EventCard: View, Identifiable {
     public var body: some View {
         VStack {
             coverImage
+                .resizable()
+                .scaledToFit()
+                .clipped()
             content
+                .padding()
         }
+        .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(PColor.black.color, lineWidth: 1)
+        )
         .onAppear {
             self.viewModel.viewDidAppear()
         }
     }
     
-    var coverImage: some View {
+    var coverImage: Image {
             if let data = self.viewModel.imageData {
                 Image(uiImage: UIImage(data: data) ?? UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .fixedSize()
             } else {
                 Image(uiImage: UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .fixedSize()
             }
     }
     
@@ -66,7 +67,8 @@ struct EventCard: View, Identifiable {
     var descriptionView: some View {
         VStack {
             PText(text: self.viewModel.leadText,
-                  font: .system(.body, design: .default, weight: .light))
+                  font: .system(.body, design: .default, weight: .light),
+                  lineLimit: 8)
             Spacer()
         }
     }
